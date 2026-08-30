@@ -1,0 +1,24 @@
+.stub-page {
+  min-height: calc(100vh - 76px);
+  background: #060a14;
+}
+
+.stub-page__inner {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 100px 40px;
+}
+
+.stub-page h1 {
+  font-weight: 550;
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: #e0a940;
+  margin: 0 0 16px;
+}
+
+.stub-page p {
+  color: #b8c0cc;
+  font-size: 1.3rem;
+}
