@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import Showcase from '../components/Showcase'
 import './Home.css'
 
 const EYEBROW_WORDS = ['Hidden Secrets', 'Untold Riches', 'Adventure and Glory']
@@ -37,35 +38,45 @@ function EyebrowRotator() {
 
 export default function Home() {
   return (
-    <section className="hero">
-      <video
-        className="hero__video"
-        src="/assets/videos/HeroShot.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
+    <>
+      <section className="hero">
+        <video
+          className="hero__video"
+          src="/assets/videos/HeroShot2.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="hero__overlay" />
+        <div className="hero__inner">
+          <p className="hero__eyebrow">
+            A World of <EyebrowRotator />
+          </p>
+          <h1 className="hero__title">
+            Tiny
+            <br />
+            Captain
+          </h1>
+          <p className="hero__byline">A game by Mitchell Ferreira</p>
+          <a
+            className="hero__cta"
+            href="https://store.steampowered.com/app/5156160/Tiny_Captain/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Wishlist on Steam
+          </a>
+        </div>
+      </section>
+      <Showcase
+        image="/assets/images/GhostBrazier.png"
+        alt="Tiny Captain sailing through a kelp forest"
+        topCaption="Discover an Epic Pirate Adventure"
+        bottomCaption="Out on the Waves"
+        topTilt="right"
+        bottomTilt="left"
       />
-      <div className="hero__overlay" />
-      <div className="hero__inner">
-        <p className="hero__eyebrow">
-          A World of <EyebrowRotator />
-        </p>
-        <h1 className="hero__title">
-          Tiny
-          <br />
-          Captain
-        </h1>
-        <p className="hero__byline">A game by Mitchell Ferreira</p>
-        <a
-          className="hero__cta"
-          href="https://store.steampowered.com/app/5156160/Tiny_Captain/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Wishlist on Steam
-        </a>
-      </div>
-    </section>
+    </>
   )
 }

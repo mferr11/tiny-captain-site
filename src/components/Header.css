@@ -1,5 +1,5 @@
 .site-header {
-  background: var(--color-bg);
+  background: var(--color-bg-deep);
   position: sticky;
   top: 0;
   z-index: 50;
