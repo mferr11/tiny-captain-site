@@ -1,4 +1,39 @@
+import { useEffect, useRef, useState } from 'react'
 import './Home.css'
+
+const EYEBROW_WORDS = ['Hidden Secrets', 'Untold Riches', 'Adventure and Glory']
+const EYEBROW_ROTATE_MS = 3200
+
+function EyebrowRotator() {
+  const [index, setIndex] = useState(0)
+  const [hasRotated, setHasRotated] = useState(false)
+  const previousIndexRef = useRef(0)
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      previousIndexRef.current = index
+      setHasRotated(true)
+      setIndex((index + 1) % EYEBROW_WORDS.length)
+    }, EYEBROW_ROTATE_MS)
+    return () => clearTimeout(id)
+  }, [index])
+
+  return (
+    <span className="hero__eyebrow-cycle">
+      {hasRotated && (
+        <span
+          key={`out-${previousIndexRef.current}`}
+          className="hero__eyebrow-word hero__eyebrow-word--out"
+        >
+          {EYEBROW_WORDS[previousIndexRef.current]}
+        </span>
+      )}
+      <span key={`in-${index}`} className="hero__eyebrow-word hero__eyebrow-word--in">
+        {EYEBROW_WORDS[index]}
+      </span>
+    </span>
+  )
+}
 
 export default function Home() {
   return (
@@ -13,7 +48,9 @@ export default function Home() {
       />
       <div className="hero__overlay" />
       <div className="hero__inner">
-        <p className="hero__eyebrow">A World of Hidden Secrets</p>
+        <p className="hero__eyebrow">
+          A World of <EyebrowRotator />
+        </p>
         <h1 className="hero__title">
           Tiny
           <br />

@@ -1,6 +1,6 @@
 .stub-page {
   min-height: calc(100vh - 76px);
-  background: #060a14;
+  background: var(--color-bg-deep);
 }
 
 .stub-page__inner {
@@ -14,11 +14,11 @@
   font-weight: 550;
   font-size: 4rem;
   text-transform: uppercase;
-  color: #e0a940;
+  color: var(--color-gold);
   margin: 0 0 16px;
 }
 
 .stub-page p {
-  color: #b8c0cc;
+  color: var(--color-text-muted);
   font-size: 1.3rem;
 }

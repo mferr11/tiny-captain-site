@@ -22,8 +22,8 @@
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to left, rgba(6, 10, 20, 0.0) 25%, rgba(6, 10, 20, 0.25) 35%, rgba(6, 10, 20, 1.0) 80%),
-    linear-gradient(to bottom, rgba(6, 10, 20, 0.0) 0%, rgba(6, 10, 20, 0.25) 75%, rgba(6, 10, 20, 1.0) 100%);
+    linear-gradient(to left, rgba(var(--color-bg-deep-rgb), 0.0) 25%, rgba(var(--color-bg-deep-rgb), 0.25) 35%, rgba(var(--color-bg-deep-rgb), 1.0) 80%),
+    linear-gradient(to bottom, rgba(var(--color-bg-deep-rgb), 0.0) 0%, rgba(var(--color-bg-deep-rgb), 0.25) 75%, rgba(var(--color-bg-deep-rgb), 1.0) 100%);
 }
 
 .hero__inner {
@@ -37,46 +37,102 @@
 
 .hero__eyebrow {
   font-weight: 550;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #e0a940;
+  color: var(--color-gold);
   margin: 0 0 12px;
 }
 
+.hero__eyebrow-cycle {
+  position: relative;
+  display: inline-grid;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.hero__eyebrow-word {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.hero__eyebrow-word--in {
+  animation: hero-eyebrow-slide-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.25s;
+}
+
+.hero__eyebrow-word--out {
+  animation: hero-eyebrow-slide-out 0.25s cubic-bezier(1.0, 0, 1, 1) both;
+}
+
+@keyframes hero-eyebrow-slide-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-eyebrow-slide-out {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__eyebrow-word--in,
+  .hero__eyebrow-word--out {
+    animation: none;
+  }
+
+  .hero__eyebrow-word--out {
+    display: none;
+  }
+}
+
 .hero__title {
+  width: fit-content;
   font-weight: 550;
   font-size: clamp(4.5rem, 12vw, 10rem);
   line-height: 0.95;
   text-transform: uppercase;
-  color: #f2ede4;
+  color: var(--color-text);
   margin: 0 0 24px;
 }
 
 .hero__byline {
   font-weight: 550;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #b8c0cc;
+  color: var(--color-text-muted);
   margin: 0 0 32px;
 }
 
 .hero__cta {
   display: inline-block;
   align-self: flex-start;
-  background: #d1a63a;
-  color: #0a0e1a;
+  background: var(--color-gold-cta);
+  color: var(--color-bg);
   font-weight: 550;
   font-size: 1.1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 50px;
+  border-radius: 999px;
   padding: 18px 32px;
-  transition: filter 0.15s ease;
+  transition: filter 0.25s ease-in-out, scale 0.25s ease-in-out;
 }
 
 .hero__cta:hover {
   filter: brightness(1.1);
+  scale: 1.05;
 }

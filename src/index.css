@@ -5,6 +5,16 @@
   src: url('/fonts/Plumpfull.woff') format('woff');
 }
 
+:root {
+  --color-bg: #0a0e1a;
+  --color-bg-deep: #060a14;
+  --color-bg-deep-rgb: 6, 10, 20;
+  --color-gold: #e0a940;
+  --color-gold-cta: #d1a63a;
+  --color-text: #f2ede4;
+  --color-text-muted: #b8c0cc;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,8 +29,8 @@ body,
 
 body {
   font-family: 'Plumpfull', sans-serif;
-  background: #0a0e1a;
-  color: #f2ede4;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 a {

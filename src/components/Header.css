@@ -1,5 +1,5 @@
 .site-header {
-  background: #0a0e1a;
+  background: var(--color-bg);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -26,7 +26,7 @@
   font-weight: 550;
   font-size: 1.75rem;
   letter-spacing: 0.03em;
-  color: #e0a940;
+  color: var(--color-gold);
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
@@ -43,20 +43,21 @@
   font-weight: 550;
   font-size: 1.15rem;
   letter-spacing: 0.06em;
-  color: #f2ede4;
+  color: var(--color-text);
   text-decoration: none;
   text-transform: uppercase;
   opacity: 0.9;
-  transition: opacity 0.15s ease, color 0.15s ease;
+  transition: opacity 0.15s ease, color 0.15s ease, transform 0.25s ease-in-out;
 }
 
 .site-header__link:hover {
   opacity: 1;
-  color: #e0a940;
+  color: var(--color-gold);
+  transform: translateY(-2px);
 }
 
 .site-header__link--active {
-  color: #e0a940;
+  color: var(--color-gold);
   opacity: 1;
 }
 
@@ -65,19 +66,20 @@
   font-weight: 550;
   font-size: 1.05rem;
   letter-spacing: 0.06em;
-  color: #e0a940;
+  color: var(--color-gold);
   text-decoration: none;
   text-transform: uppercase;
-  border: 1.5px solid #e0a940;
+  border: 2.5px solid var(--color-gold);
   border-radius: 999px;
   padding: 10px 26px;
   white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.25s ease, color 0.25s ease, scale 0.25s ease-in-out;
 }
 
 .site-header__wishlist:hover {
-  background: #e0a940;
-  color: #0a0e1a;
+  background: var(--color-gold);
+  color: var(--color-bg);
+  scale: 1.05;
 }
 
 @media (max-width: 640px) {
