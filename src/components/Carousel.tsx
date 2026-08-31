@@ -4,6 +4,7 @@ import './Carousel.css'
 type CarouselImage = {
   src: string
   alt: string
+  title?: string
 }
 
 type CarouselProps = {
@@ -36,7 +37,10 @@ export default function Carousel({ images, autoPlayMs = 4500 }: CarouselProps) {
       <div className="carousel__viewport">
         <div className="carousel__track" style={{ transform: `translateX(-${index * 100}%)` }}>
           {images.map((image) => (
-            <img key={image.src} className="carousel__slide" src={image.src} alt={image.alt} />
+            <div key={image.src} className="carousel__slide">
+              <img className="carousel__slide-image" src={image.src} alt={image.alt} />
+              {image.title && <p className="carousel__caption">{image.title}</p>}
+            </div>
           ))}
         </div>
       </div>
