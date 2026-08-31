@@ -1,0 +1,89 @@
+.cta {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.cta__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cta__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--color-bg-rgb), 1.0) 0%,
+    rgba(var(--color-bg-rgb), 0.75) 10%,
+    rgba(var(--color-bg-rgb), 0.75) 80%,
+    rgba(var(--color-bg-rgb), 1.0) 90%
+  );
+}
+
+.cta__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1600px;
+  padding: 80px 40px;
+}
+
+.cta__heading {
+  font-weight: 550;
+  font-size: clamp(2.5rem, 6vw, 6.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-shadow: 8px 8px 0px rgba(var(--color-bg-super-deep-rgb), 0.5);
+  margin: 0 0 20px;
+}
+
+.cta__text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  text-shadow: 3px 3px 2px rgba(var(--color-bg-super-deep-rgb), 1);
+  margin: 0 0 36px;
+}
+
+.cta__button {
+  display: inline-block;
+  background: var(--color-gold-cta);
+  color: var(--color-bg);
+  font-weight: 550;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 20px 40px;
+  transition: filter 0.25s ease-in-out, scale 0.25s ease-in-out;
+}
+
+.cta__button:hover {
+  filter: brightness(1.1);
+  scale: 1.05;
+}
+
+@media (max-width: 640px) {
+  .cta {
+    min-height: 50vh;
+    margin-top: 80px;
+  }
+
+  .cta__inner {
+    padding: 60px 20px;
+  }
+}

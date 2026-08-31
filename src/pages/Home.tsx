@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import About from '../components/About'
 import Carousel from '../components/Carousel'
+import Cta from '../components/Cta'
 import Showcase from '../components/Showcase'
 import './Home.css'
 
@@ -203,6 +204,18 @@ export default function Home() {
           Explore gameplay features
         </Link>
       </About>
+
+      <Showcase
+        image="/assets/images/SunriseShipwreck.png"
+        alt="Tiny Captain sunrise screenshot"
+        topCaption="Your crew is waiting"
+        bottomCaption="for their legendary captain"
+        topTilt="right"
+        bottomTilt="left"
+        imagePosition="center 15%"
+      />
+
+      <Cta />
     </>
   )
 }
