@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { NAV_LINKS, STEAM_URL } from '../constants'
 import './Footer.css'
 
 export default function Footer() {
@@ -8,18 +9,12 @@ export default function Footer() {
         <div className="site-footer__top">
           <span className="site-footer__logo">Tiny Captain</span>
           <nav className="site-footer__nav">
-            <NavLink to="/story" className="site-footer__link">
-              Story
-            </NavLink>
-            <NavLink to="/features" className="site-footer__link">
-              Features
-            </NavLink>
-            <a
-              className="site-footer__link"
-              href="https://store.steampowered.com/app/5156160/Tiny_Captain/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.to} to={link.to} className="site-footer__link">
+                {link.label}
+              </NavLink>
+            ))}
+            <a className="site-footer__link" href={STEAM_URL} target="_blank" rel="noreferrer">
               Wishlist on Steam
             </a>
           </nav>

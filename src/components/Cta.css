@@ -58,25 +58,6 @@
   margin: 0 0 36px;
 }
 
-.cta__button {
-  display: inline-block;
-  background: var(--color-gold-cta);
-  color: var(--color-bg);
-  font-weight: 550;
-  font-size: 1.2rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 999px;
-  padding: 20px 40px;
-  transition: filter 0.25s ease-in-out, scale 0.25s ease-in-out;
-}
-
-.cta__button:hover {
-  filter: brightness(1.1);
-  scale: 1.05;
-}
-
 @media (max-width: 640px) {
   .cta {
     min-height: 50vh;

@@ -120,22 +120,6 @@
 }
 
 .hero__cta {
-  display: inline-block;
   align-self: flex-start;
-  background: var(--color-gold-cta);
-  color: var(--color-bg);
-  font-weight: 550;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 999px;
-  padding: 18px 32px;
-  transition: filter 0.25s ease-in-out, scale 0.25s ease-in-out;
-}
-
-.hero__cta:hover {
-  filter: brightness(1.1);
-  scale: 1.05;
 }
 

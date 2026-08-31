@@ -1,3 +1,4 @@
+import { STEAM_URL } from '../constants'
 import './Cta.css'
 
 export default function Cta() {
@@ -11,12 +12,7 @@ export default function Cta() {
           Wishlist Tiny Captain now and be the first to know when you can take the helm of your
           own tiny ship.
         </p>
-        <a
-          className="cta__button"
-          href="https://store.steampowered.com/app/5156160/Tiny_Captain/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="btn-gold btn-gold--large" href={STEAM_URL} target="_blank" rel="noreferrer">
           Wishlist on Steam
         </a>
       </div>

@@ -18,8 +18,10 @@ function iconStyle(image: string): CSSProperties {
   return { '--icon-src': `url("${image}")` } as CSSProperties
 }
 
-function iconClassName(shift?: IconShift) {
-  return shift ? `about__icon about__icon--${shift}` : 'about__icon'
+function iconClassName(side: 'left' | 'right', shift?: IconShift) {
+  const classes = ['about__icon', `about__icon--${side}`]
+  if (shift) classes.push(`about__icon--${shift}`)
+  return classes.join(' ')
 }
 
 export default function About({
@@ -36,7 +38,7 @@ export default function About({
     <section className="about">
       {leftImage && (
         <span
-          className={iconClassName(leftShift)}
+          className={iconClassName('left', leftShift)}
           style={iconStyle(leftImage)}
           role="img"
           aria-label={leftAlt}
@@ -48,7 +50,7 @@ export default function About({
       </div>
       {rightImage && (
         <span
-          className={iconClassName(rightShift)}
+          className={iconClassName('right', rightShift)}
           style={iconStyle(rightImage)}
           role="img"
           aria-label={rightAlt}

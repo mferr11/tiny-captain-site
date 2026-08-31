@@ -4,6 +4,7 @@ import About from '../components/About'
 import Carousel from '../components/Carousel'
 import Cta from '../components/Cta'
 import Showcase from '../components/Showcase'
+import { STEAM_URL } from '../constants'
 import './Home.css'
 
 const ADVENTURE_IMAGES = [
@@ -72,12 +73,7 @@ export default function Home() {
             Captain
           </h1>
           <p className="hero__byline">A game by Mitchell Ferreira</p>
-          <a
-            className="hero__cta"
-            href="https://store.steampowered.com/app/5156160/Tiny_Captain/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a className="btn-gold hero__cta" href={STEAM_URL} target="_blank" rel="noreferrer">
             Wishlist on Steam
           </a>
         </div>
@@ -121,7 +117,7 @@ export default function Home() {
           happened to Marrow, and what's waiting to rise if you're not careful...
         </p>
 
-        <Link to="/story" className="about__cta">
+        <Link to="/story" className="btn-gold about__cta">
           Learn more about the story
         </Link>
       </About>
@@ -201,7 +197,7 @@ export default function Home() {
           and become the most feared pirate on the seas!
         </p>
 
-        <Link to="/features" className="about__cta">
+        <Link to="/features" className="btn-gold about__cta">
           Explore gameplay features
         </Link>
       </About>

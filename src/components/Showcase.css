@@ -18,6 +18,9 @@
   object-fit: cover;
 }
 
+/* fill='%230a0e1a' below is a literal copy of --color-bg (#0a0e1a) — data-URI
+   SVG backgrounds can't read CSS custom properties, so update it by hand if
+   --color-bg ever changes. */
 .showcase__media::before,
 .showcase__media::after {
   content: '';
@@ -33,11 +36,38 @@
 .showcase__media::before {
   top: -1px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,0 L0,0 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
+  animation: showcase-wave-left 1.5s linear infinite;
 }
 
 .showcase__media::after {
   bottom: -1px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,20 L0,20 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
+  animation: showcase-wave-right 1.5s linear infinite;
+}
+
+@keyframes showcase-wave-left {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -50px;
+  }
+}
+
+@keyframes showcase-wave-right {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase__media::before,
+  .showcase__media::after {
+    animation: none;
+  }
 }
 
 .showcase__caption {
@@ -90,5 +120,23 @@
   .showcase__media::after {
     height: 14px;
     background-size: 30px 14px;
+  }
+
+  @keyframes showcase-wave-left {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -30px;
+    }
+  }
+
+  @keyframes showcase-wave-right {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: 30px;
+    }
   }
 }

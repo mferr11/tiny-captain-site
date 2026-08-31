@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { NAV_LINKS, STEAM_URL } from '../constants'
 import './Header.css'
 
 export default function Header() {
@@ -10,30 +11,20 @@ export default function Header() {
             Tiny Captain
           </NavLink>
           <nav className="site-header__nav">
-            <NavLink
-              to="/story"
-              className={({ isActive }) =>
-                isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
-              }
-            >
-              Story
-            </NavLink>
-            <NavLink
-              to="/features"
-              className={({ isActive }) =>
-                isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
-              }
-            >
-              Features
-            </NavLink>
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
           </nav>
         </div>
-        <a
-          className="site-header__wishlist"
-          href="https://store.steampowered.com/app/5156160/Tiny_Captain/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="site-header__wishlist" href={STEAM_URL} target="_blank" rel="noreferrer">
           Wishlist
         </a>
       </div>
