@@ -65,6 +65,27 @@
   font-weight: 700;
 }
 
+.about__cta {
+  display: inline-block;
+  margin-top: 32px;
+  background: var(--color-gold-cta);
+  color: var(--color-bg);
+  font-family: 'Plumpfull', sans-serif;
+  font-weight: 550;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 18px 32px;
+  transition: filter 0.25s ease-in-out, scale 0.25s ease-in-out;
+}
+
+.about__cta:hover {
+  filter: brightness(1.1);
+  scale: 1.05;
+}
+
 @media (max-width: 900px) {
   .about {
     flex-direction: column;

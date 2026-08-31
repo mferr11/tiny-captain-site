@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import About from '../components/About'
 import Carousel from '../components/Carousel'
 import Showcase from '../components/Showcase'
@@ -98,8 +99,9 @@ export default function Home() {
         rightShift="bottom"
       >
         <p className="about__text">
-          Tiny Captain drops you behind the wheel of a small ship in a big, hostile ocean — one carved into
-          distinct regions, each with its own factions, dangers, and secrets. Trade cannon fire with
+          Be a Tiny Captain and command a tiny ship in a vast, cursed ocean.  Sail, fight, and loot your 
+          way across a variety of regions, from sun-drenched isles to cursed graveyards. Trade cannon fire 
+          with
           <span className="about__emphasis"> rival pirates</span>, dodge the disciplined broadsides of
           <span className="about__emphasis"> the Navy</span>, and brave the fog-choked wrecks
           where <span className="about__emphasis">ghost ships</span> still sail long after their crews went
@@ -116,6 +118,10 @@ export default function Home() {
           stopped guarding it. Chase the legend far enough, and you might uncover what really
           happened to Marrow — and what's waiting to rise if you're not careful.
         </p>
+
+        <Link to="/story" className="about__cta">
+          Learn more about the story
+        </Link>
       </About>
 
       <Showcase
@@ -138,7 +144,8 @@ export default function Home() {
       >
         <p className="about__text">
           Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic 
-          archipelago inhabited by rogue merchants. As you begin to explore, you'll encounter beautiful coral reefs and verdant kelp forests. 
+          archipelago inhabited by rogue merchants. As you begin to explore, you'll encounter beautiful coral 
+          reefs and verdant kelp forests, but also treacherous whirlpools and sunken wrecks.
           And be ready to batten down the hatches, as you weather 
           <span className="about__emphasis"> dangerous storms</span> and navigate through 
           <span className="about__emphasis"> thick fog banks</span>, as even the ocean itself
@@ -188,9 +195,13 @@ export default function Home() {
           Collect resources and unlock crafting recipes for perks, powerful abilities that can
           turn the tide of battle in your favour. Overwhelm your foes with the <span className="about__emphasis">mighty triple gun</span>,
           sustain yourself during battle with <span className="about__emphasis">lifestealing leeching rounds</span>, or outmaneuver your foes
-          with the <span className="about__emphasis">speed of the wind burst!</span> Combine perks to create a ship that suits your playstyle, 
+          with the <span className="about__emphasis">speed of the wind burst!</span> Combine perks to create a ship that suits your playstyle,
           and become the most feared pirate on the seas!
         </p>
+
+        <Link to="/features" className="about__cta">
+          Explore gameplay features
+        </Link>
       </About>
     </>
   )
