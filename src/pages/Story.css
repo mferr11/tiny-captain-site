@@ -27,9 +27,10 @@
 
 .story-hero__eyebrow {
   font-weight: 550;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 3px 3px 5px rgba(var(--color-bg-super-deep-rgb), 1.0);
   color: var(--color-gold);
   margin: 0 0 12px;
 }
