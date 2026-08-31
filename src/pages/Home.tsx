@@ -116,8 +116,9 @@ export default function Home() {
           causes a silence to fall in every port, and of{' '}
           <span className="about__emphasis">three relics</span> tied to whatever fate befell
           him. Rumor has it the first lies aboard a sunken wreck, protected by something that never
-          stopped guarding it. Chase the legend far enough, and you might uncover what really
-          happened to Marrow — and what's waiting to rise if you're not careful.
+          stopped guarding it. Chase the legend far enough, and you might uncover 
+          <span className="about__emphasis"> his long lost treasure</span>, along with what what really
+          happened to Marrow, and what's waiting to rise if you're not careful...
         </p>
 
         <Link to="/story" className="about__cta">
