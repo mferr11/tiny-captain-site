@@ -106,6 +106,7 @@
   line-height: 0.95;
   text-transform: uppercase;
   color: var(--color-text);
+  text-shadow: 10px 10px 0px rgba(var(--color-bg-super-deep-rgb), 0.5);
   margin: 0 0 24px;
 }
 
@@ -138,42 +139,3 @@
   scale: 1.05;
 }
 
-.about {
-  max-width: 1200px;
-  margin: 140px auto 0;
-  padding: 0px 40px 64px;
-  text-align: center;
-}
-
-.about__heading {
-  font-weight: 550;
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-  margin: 0 0 24px;
-}
-
-.about__text {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-  margin: 0;
-}
-
-.about__text + .about__text {
-  margin-top: 24px;
-}
-
-.about__emphasis {
-  color: var(--color-gold);
-  font-weight: 700;
-}
-
-@media (max-width: 640px) {
-  .about {
-    margin-top: 80px;
-    padding: 0 20px;
-  }
-}
