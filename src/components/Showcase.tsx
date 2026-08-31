@@ -9,6 +9,7 @@ type ShowcaseProps = {
   bottomCaption: string
   topTilt?: CaptionTilt
   bottomTilt?: CaptionTilt
+  imagePosition?: string
 }
 
 function tiltClass(tilt: CaptionTilt) {
@@ -22,11 +23,17 @@ export default function Showcase({
   bottomCaption,
   topTilt = 'none',
   bottomTilt = 'none',
+  imagePosition = 'center',
 }: ShowcaseProps) {
   return (
     <section className="showcase">
       <div className="showcase__media">
-        <img className="showcase__image" src={image} alt={alt} />
+        <img
+          className="showcase__image"
+          src={image}
+          alt={alt}
+          style={{ objectPosition: imagePosition }}
+        />
       </div>
       <p className={`showcase__caption showcase__caption--top${tiltClass(topTilt)}`}>
         {topCaption}

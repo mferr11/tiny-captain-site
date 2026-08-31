@@ -26,11 +26,11 @@
 }
 
 .about__icon--top {
-  transform: translateY(-96px);
+  transform: translateY(-64px);
 }
 
 .about__icon--bottom {
-  transform: translateY(164px);
+  transform: translateY(96px);
 }
 
 .about__body {

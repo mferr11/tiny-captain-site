@@ -1,7 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import About from '../components/About'
+import Carousel from '../components/Carousel'
 import Showcase from '../components/Showcase'
 import './Home.css'
+
+const ADVENTURE_IMAGES = [
+  { src: '/assets/images/SunkenBattlefield.png', alt: 'A sunken battlefield' },
+  { src: '/assets/images/KelpForest.png', alt: 'A kelp forest' },
+  { src: '/assets/images/SpiritRuins.png', alt: 'Ancient spirit ruins' },
+  { src: '/assets/images/DeepGraveyard.png', alt: 'A graveyard of sunken ships' },
+  { src: '/assets/images/SunriseShipwreck.png', alt: 'A shipwreck at sunrise' },
+  { src: '/assets/images/GhostBrazier.png', alt: 'A ghostly brazier' },
+]
 
 const EYEBROW_WORDS = ['Hidden Secrets', 'Untold Riches', 'Adventure and Glory']
 const EYEBROW_ROTATE_MS = 3200
@@ -100,7 +110,7 @@ export default function Home() {
         <p className="about__text">
           But not every wreck is just wreckage. Legend speaks of{' '}
           <span className="about__emphasis">Captain Marrow</span>, a pirate whose name still
-          curdles conversation in every port, and of{' '}
+          causes a silence to fall in every port, and of{' '}
           <span className="about__emphasis">three relics</span> tied to whatever fate befell
           him. Rumor has it the first lies aboard a sunken wreck, protected by something that never
           stopped guarding it. Chase the legend far enough, and you might uncover what really
@@ -111,8 +121,8 @@ export default function Home() {
       <Showcase
         image="/assets/images/KelpForest.png"
         alt="Tiny Captain sailing through a kelp forest"
-        topCaption="Discover an Epic Pirate Adventure"
-        bottomCaption="Out on the Waves"
+        topCaption="Secrets lurk in every corner"
+        bottomCaption="waiting to be discovered"
         topTilt="left"
         bottomTilt="right"
       />
@@ -121,19 +131,65 @@ export default function Home() {
         heading="Explore a World of Adventure"
         leftImage="/assets/icons/Yen Flat White 256.png"
         leftAlt="Coin icon"
-        rightImage="/assets/icons/Chest Flat White 256.png"
-        rightAlt="Treasure Chest icon"
+        leftShift="bottom"
+        rightImage="/assets/icons/Barrel Flat White 256.png"
+        rightAlt="Barrel icon"
+        rightShift="top"
       >
         <p className="about__text">
-          Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic archipelago inhabited by rogue merchants. 
-          Here, you'll learn the ropes of sailing, trading, and fighting, and begin to uncover the 
-          secrets of the world around you. But the ocean is vast, and as you begin to explore, you'll
-          encounter beautiful <span className="about__emphasis">coral reefs</span> and verdant 
-          <span className="about__emphasis"> kelp forests</span>, each with its own dangers and rewards. 
+          Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic 
+          archipelago inhabited by rogue merchants. As you begin to explore, you'll encounter beautiful coral reefs and verdant kelp forests. 
           And be ready to batten down the hatches, as you weather 
           <span className="about__emphasis"> dangerous storms</span> and navigate through 
-          <span className="about__emphasis"> thick fog banks</span>, as even the ocean itself 
+          <span className="about__emphasis"> thick fog banks</span>, as even the ocean itself
           can be a formidable adversary.
+        </p>
+
+        <p className="about__text">
+          Outside the Sunshard Isles, you'll find the <span className="about__emphasis">Pirate Freewaters</span>, 
+          the <span className="about__emphasis">Navy's Iron Dominion</span>, and the eerie 
+          <span className="about__emphasis"> Sunken Graveyard</span>, each with its own dangers and secrets. 
+          Outside these three regions, danger lurks in the unknown and uncharted waters, where 
+          <span className="about__emphasis"> something bigger than any ship</span> may be waiting to strike...
+        </p>
+      </About>
+
+      <Carousel images={ADVENTURE_IMAGES} />
+
+      <Showcase
+        image="/assets/images/Combat.png"
+        alt="Tiny Captain in combat"
+        topCaption="Sink rival crews"
+        bottomCaption="and establish your reputation"
+        topTilt="right"
+        bottomTilt="left"
+        imagePosition="center 15%"
+      />
+
+      <About
+        heading="Level Up Your Ship"
+        leftImage="/assets/icons/PVP 2 Flat White 256.png"
+        leftAlt="PVP icon"
+        leftShift="top"
+        rightImage="/assets/icons/Chest Flat White 256.png"
+        rightAlt="Treasure Chest icon"
+        rightShift="bottom"
+      >
+        <p className="about__text">
+          Complete voyages, loot sunken wrecks, and defeat rival crews to earn
+          <span className="about__emphasis"> gold and fame.</span> Use gold to purchase
+          supplies and cosmetics, allowing you to customise your ship's appearance to your liking.
+          And when you earn enough fame you'll level up your ship,
+          boosting your <span className="about__emphasis"> health, speed, cargo capacity 
+            and firepower!</span>
+        </p>
+
+        <p className="about__text">
+          Collect resources and unlock crafting recipes for perks, powerful abilities that can
+          turn the tide of battle in your favour. Overwhelm your foes with the <span className="about__emphasis">mighty triple gun</span>,
+          sustain yourself during battle with <span className="about__emphasis">lifestealing leeching rounds</span>, or outmaneuver your foes
+          with the <span className="about__emphasis">speed of the wind burst!</span> Combine perks to create a ship that suits your playstyle, 
+          and become the most feared pirate on the seas!
         </p>
       </About>
     </>
