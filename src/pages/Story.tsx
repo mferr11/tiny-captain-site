@@ -13,7 +13,7 @@ export default function Story() {
           <p className="story-hero__text">
             The Shipwreck Graveyard wasn't always a cursed place. In the past, it was
             the final resting place for many ships that sailed the seas, home to spectral sailors
-            who still had a purpose to fulfill. In the past, there was an understanding between the 
+            who still had a purpose to fulfill. There was an understanding between the 
             living and the dead, a mutual respect that allowed both to coexist in peace.
             But now, it is a place of mystery and danger, where the spirits of the past still linger, 
             unsure of why they're still fighting...
