@@ -11,10 +11,10 @@ import './Home.css'
 const ADVENTURE_IMAGES = [
   { src: '/assets/images/SunkenBattlefield.png', alt: 'A sunken battlefield', title: 'Sunken Battlefield' },
   { src: '/assets/images/KelpForest.jpg', alt: 'A kelp forest', title: 'Kelp Forest' },
-  { src: '/assets/images/SpiritRuins.png', alt: 'Ancient spirit ruins', title: 'Spirit Ruins' },
-  { src: '/assets/images/DeepGraveyard.png', alt: 'A graveyard of sunken ships', title: 'Deep Graveyard' },
-  { src: '/assets/images/SunriseShipwreck.png', alt: 'A shipwreck at sunrise', title: 'Shipwreck at Sunrise' },
-  { src: '/assets/images/GhostBrazier.png', alt: 'A ghostly brazier', title: 'Ghost Brazier' },
+  { src: '/assets/images/SpiritRuins.png', alt: 'Ancient spirit ruins', title: 'Ancient Ruins' },
+  { src: '/assets/images/DeepGraveyard.png', alt: 'The sunken graveyard', title: 'The Sunken Graveyard' },
+  { src: '/assets/images/SunriseShipwreck.png', alt: 'A shipwreck at sunrise', title: 'Shipwreck at Sea' },
+  { src: '/assets/images/GhostBrazier.png', alt: 'A ghostly brazier', title: 'A Mysterious Tower' },
   { src: '/assets/images/CoralReef.jpg', alt: 'A coral reef', title: 'Coral Reef'},
 ]
 

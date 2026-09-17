@@ -21,6 +21,10 @@
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.carousel__track--no-transition {
+  transition: none;
+}
+
 .carousel__slide {
   position: relative;
   flex: 0 0 100%;
@@ -46,7 +50,7 @@
   margin: 0;
   padding: 14px 24px;
   border-radius: 10px;
-  background: rgba(var(--color-bg-super-deep-rgb), 0.95);
+  background: rgba(var(--color-bg-super-deep-rgb), 0.75);
   color: var(--color-gold);
   font-weight: 550;
   font-size: clamp(1.1rem, 2.2vw, 1.75rem);
