@@ -1,8 +1,8 @@
 .carousel {
   position: relative;
   max-width: 1400px;
-  margin: 64px auto 0;
-  padding: 0px 40px;
+  margin: 0vh auto 0;
+  padding: 0px 40px min(64px, 12vh);
 }
 
 .carousel__viewport {
@@ -11,6 +11,8 @@
   border: 7.5px solid var(--color-gold);
   box-shadow: 10px 10px 0px rgba(var(--color-bg-super-deep-rgb), 0.5);
   aspect-ratio: 2 / 1;
+  max-height: 75vh;
+  margin: 0 auto;
 }
 
 .carousel__track {
@@ -92,7 +94,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 30px;
+  margin-top: min(30px, 3vh);
 }
 
 .carousel__dot {

@@ -123,3 +123,35 @@
   align-self: flex-start;
 }
 
+@media (max-width: 1440px) {
+  .hero__inner {
+    padding: 80px 32px;
+  }
+
+  .hero__title {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: calc(100vh - 60px);
+  }
+
+  .hero__inner {
+    padding: 48px 20px;
+  }
+
+  .hero__eyebrow {
+    font-size: 1.1rem;
+  }
+
+  .hero__title {
+    font-size: clamp(2.75rem, 16vw, 5rem);
+  }
+
+  .hero__byline {
+    font-size: 1rem;
+  }
+}
+

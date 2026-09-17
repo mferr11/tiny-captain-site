@@ -11,6 +11,7 @@ type AboutProps = {
   rightImage?: string
   rightAlt?: string
   rightShift?: IconShift
+  cta?: ReactNode
   children: ReactNode
 }
 
@@ -32,10 +33,12 @@ export default function About({
   rightImage,
   rightAlt = '',
   rightShift,
+  cta,
   children,
 }: AboutProps) {
   return (
     <section className="about">
+      <h2 className="about__heading">{heading}</h2>
       {leftImage && (
         <span
           className={iconClassName('left', leftShift)}
@@ -44,10 +47,7 @@ export default function About({
           aria-label={leftAlt}
         />
       )}
-      <div className="about__body">
-        <h2 className="about__heading">{heading}</h2>
-        {children}
-      </div>
+      <div className="about__copy">{children}</div>
       {rightImage && (
         <span
           className={iconClassName('right', rightShift)}
@@ -56,6 +56,7 @@ export default function About({
           aria-label={rightAlt}
         />
       )}
+      {cta && <div className="about__cta">{cta}</div>}
     </section>
   )
 }

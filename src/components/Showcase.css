@@ -1,13 +1,14 @@
 .showcase {
   position: relative;
   z-index: 1;
-  margin-top: 120px;
+  margin-top: min(120px, 10vh);
 }
 
 .showcase__media {
   position: relative;
   width: 100%;
   aspect-ratio: 2.75 / 1;
+  max-height: 70vh;
   overflow: hidden;
 }
 
