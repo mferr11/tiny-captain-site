@@ -1,9 +1,21 @@
 import About from '../components/About'
+import Carousel from '../components/Carousel'
 import Cta from '../components/Cta'
+import Divider from '../components/Divider'
 import Reveal from '../components/Reveal'
 import Showcase from '../components/Showcase'
 import TagRow from '../components/TagRow'
 import './Features.css'
+
+const ADVENTURE_IMAGES = [
+  { src: '/assets/images/SunkenBattlefield.png', alt: 'A sunken battlefield', title: 'Sunken Battlefield' },
+  { src: '/assets/images/KelpForest.jpg', alt: 'A kelp forest', title: 'Kelp Forest' },
+  { src: '/assets/images/SpiritRuins.png', alt: 'Ancient spirit ruins', title: 'Ancient Ruins' },
+  { src: '/assets/images/DeepGraveyard.png', alt: 'The sunken graveyard', title: 'The Sunken Graveyard' },
+  { src: '/assets/images/SunriseShipwreck.png', alt: 'A shipwreck at sunrise', title: 'Shipwreck at Sea' },
+  { src: '/assets/images/GhostBrazier.png', alt: 'A ghostly brazier', title: 'A Mysterious Tower' },
+  { src: '/assets/images/CoralReef.jpg', alt: 'A coral reef', title: 'Coral Reef'},
+]
 
 export default function Features() {
   return (
@@ -11,7 +23,7 @@ export default function Features() {
       <section className="features-hero">
         <div className="features-hero__inner">
           <p className="features-hero__eyebrow">The Gameplay</p>
-          <h1 className="features-hero__title">What does being a Tiny Captain look like?</h1>
+          <h1 className="features-hero__title">What does being a Captain look like?</h1>
           <p className="features-hero__text">
             Take a look at the gameplay of Tiny Captain in closer detail. The voyages you'll
             undertake, the obtacles you'll encounter, and the tools and resources you'll use
@@ -23,45 +35,127 @@ export default function Features() {
       <Showcase
         image="/assets/images/CoralReef.jpg"
         alt="Tiny Captain exploring an island"
-        topCaption="There's a whole world"
+        topCaption="A whole world"
         bottomCaption="waiting to be discovered"
         topTilt="left"
         bottomTilt="right"
       />
 
+<About
+        heading="Embark on your maiden voyage"
+        leftImage="/assets/icons/Scroll Flat White 256.png"
+        leftAlt="Scroll icon"
+        leftShift="bottom"
+        rightImage="/assets/icons/Barrel Flat White 256.png"
+        rightAlt="Barrel icon"
+        rightShift="top"
+      >
+        <Reveal as="p" className="about__text">
+          Voyages play an integral role to your adventure. They're the key to earning gold
+          and leveling up your ship. Your main source of voyages will be purchasing them from
+          the outpost, after which you can embark on a voyage from your ship's menu. 
+          There are three types of voyages to choose from, each with their own unique challenges 
+          and rewards.
+        </Reveal>
+
+        <Reveal delay={100}>
+          <TagRow
+            variant="feature"
+            footnote="and more!"
+            tags={[
+              { label: 'Combat', detail: 'Hunt down and sink enemy ships', accent: '#c1443a' },
+              { label: 'Escort', detail: 'Protect a vessel through hostile waters', accent: '#3d7bc4' },
+              { label: 'Recovery', detail: 'Salvage cargo before it goes missing' },
+            ]}
+          />
+        </Reveal>
+
+        <Reveal as="p" className="about__text">
+          Each voyage is a little different from the last, but you won't 
+          have access to every voyage from the start. Level up your ship and you'll 
+          unlock new, harder voyages that bring better rewards!
+        </Reveal>
+
+      </About>
+
+      <Divider />
+
       <About
-        heading="Explore a Living Ocean"
+        heading="Explore an Uncharted Ocean"
         leftImage="/assets/icons/Compass Flat White 256.png"
         leftAlt="Compass icon"
         leftShift="top"
-        rightImage="/assets/icons/Storm Flat White 256.png"
-        rightAlt="Storm icon"
+        rightImage="/assets/icons/Map Flat White 256.png"
+        rightAlt="Map icon"
         rightShift="bottom"
       >
         <Reveal as="p" className="about__text">
-          Throughout your adventure you'll sail through a range of different regions, each with
-          its own personality and its own mechanics to learn.
+          As you sail the ocean and embark on your voyages, you'll encounter a variety of islands, 
+          outposts, and seaposts. Each of these locations has its own unique look and feel, 
+          and you'll need to explore them to find the best resources and supplies for your ship.
         </Reveal>
 
         <Reveal as="p" className="about__text" delay={100}>
-          Getting around takes more than a map, though. Your starter equipment can only chart
-          islands, outposts, and seaposts, so anything else worth remembering is on you to
-          find again.
+        But exploring these places is just half the battle. A master captain must be a master 
+        navigator, and your ship's basic charting equipment isn't up to scratch. If you want 
+        to be able to chart points of interest that aren't just islands, like a resource rich
+        coral reef, you'll need to purchase 
+        better equipment from a cartographer.
         </Reveal>
 
         <Reveal as="p" className="about__text" delay={200}>
-          Spotted some strange ruins, or a coral reef you'd like to come back to for resource
-          harvesting? You'll need to pick up better equipment from a cartographer first.
-        </Reveal>
-
-        <Reveal as="p" className="about__text" delay={300}>
-          But getting lost isn't your only concern, the sea itself has plans for you. Sail into
-          a fog bank thick enough to hide a fleet, or get caught in a storm that batters your
-          hull and drags you off course. Not everything you run into wants a fight though:
-          scavenge a drifting shipwreck or help a lost merchant limp home to the nearest outpost,
-          and they'll make it worth your while.
+          But your charts and maps won't do you any good if you're caught in a storm. Storms are just
+          one of the many hazards you'll encounter on the high seas, and they can be deadly if you're 
+          not prepared. Or perhaps you'll end up in a fog bank, where you can't see a thing and your 
+          ship is at the mercy of whatever's lurking in the mist.
         </Reveal>
       </About>
+
+      <Divider />
+
+      <About
+        heading="Upgrade Your Ship"
+        leftImage="/assets/icons/Flag White  256.png"
+        leftAlt="Flag icon"
+        rightImage="/assets/icons/Chest Flat White 256.png"
+        rightAlt="Chest icon"
+        rightShift="top"
+      >
+        <Reveal as="p" className="about__text">
+          Every voyage you complete and every enemy you defeat earns you gold and fame. Fame alone 
+          will level up your ship's base stats over time, and gold is what you'll need to 
+          purchase new voyages and cosmetics. But if you want to really upgrade your ship,
+          you'll need those resources to craft perks, powerful abilities that will turn the tide in battle.
+          Gathering enough resources to craft perks is no easy task, but the rewards are well worth it.
+        </Reveal>
+
+        <Reveal as="p" className="about__text" delay={100}>
+        Every perk is split into one of two types: passive perks, which grant a permanent bonus to 
+        your ship while equipped, and active perks, which grant a powerful ability that you can use 
+        for a limited time, before they need to recharge. As you level up your ship, you'll unlock 
+        more perk slots to stack them together and build a ship that fights the way you want it to.
+        </Reveal>
+
+        <Reveal as="p" className="about__text" delay={200}>
+        Not to spoil the fun, but here are a few of the perks you'll be able to craft and equip 
+        to your ship. There are many more to discover, and you'll need to experiment with different 
+        combinations to find the ones that work best for you.
+        </Reveal>
+
+        <Reveal delay={200}>
+          <TagRow
+            variant="marquee"
+            tags={[
+              { label: 'Triple Gun', detail: 'While active, each cannonshot fires three rounds for the cost of one', kind: 'active' },
+              { label: 'Shockwave', detail: 'Creates a shockwave when activated that damages and knocks back nearby enemies', kind: 'active' },
+              { label: 'Wind Burst', detail: 'When activated, harnesses the power of the wind to boost your ship\'s speed', kind: 'active' },
+              { label: 'Leeching Rounds', detail: 'Every cannonball drains health from enemies on hit, but deals less damage', kind: 'passive' },
+              { label: 'Durable Repairs', detail: 'Grants armour to your ship every time you repair it, but repairs are twice as expensive', kind: 'passive' },
+              { label: 'Volatile Rounds', detail: 'Every cannonshot has a chance to be replaced with a flameshot, chainshot, or explosive shot', kind: 'passive' },
+            ]}
+          />
+        </Reveal>
+      </About>      
 
       <Showcase
         image="/assets/images/IslandExploration.png"
@@ -73,49 +167,6 @@ export default function Features() {
       />
 
       <About
-        heading="Take On a Voyage"
-        leftImage="/assets/icons/Scroll Flat White 256.png"
-        leftAlt="Scroll icon"
-        leftShift="bottom"
-        rightImage="/assets/icons/Barrel Flat White 256.png"
-        rightAlt="Barrel icon"
-        rightShift="top"
-      >
-        <Reveal as="p" className="about__text">
-          Voyages play an integral role to your adventure. They're the key to earning gold,
-          collecting resources, and leveling up your ship. You'll purchase voyages from an outpost,
-          and then select which voyage you want to undertake from your ship's menu. From there,
-          the adventure begins.
-        </Reveal>
-
-        <Reveal delay={120}>
-          <TagRow
-            tags={[
-              { label: 'Combat', detail: 'Hunt down and sink enemy ships' },
-              { label: 'Escort', detail: 'Protect a vessel through hostile waters' },
-              { label: 'Recovery', detail: 'Salvage cargo before it goes missing' },
-            ]}
-          />
-        </Reveal>
-
-        <Reveal as="p" className="about__text">
-          Each voyage is a little different from the last, but you won't 
-          have access to every voyage from the start. Level up your ship and complete 
-          campaign missions to unlock new types of voyages!
-        </Reveal>
-
-      </About>
-
-      <Showcase
-        image="/assets/images/VoyageFire.png"
-        alt="A voyage lit by fire"
-        topCaption="No two voyages"
-        bottomCaption="are ever the same"
-        topTilt="right"
-        bottomTilt="left"
-      />
-
-      <About
         heading="Master Ship-to-Ship Combat"
         leftImage="/assets/icons/Explosion Flat White 256.png"
         leftAlt="Explosion icon"
@@ -124,36 +175,57 @@ export default function Features() {
         rightAlt="Skull icon"
         rightShift="bottom"
       >
+
         <Reveal as="p" className="about__text">
-          Not every cannonball is the same. Different cannonballs have different properties,
+          Planks are used to repair your ship, and every hit you take costs you planks. They're the only 
+          thing between your ship
+          and the bottom of the ocean, so keep your hold stocked or you'll quickly sink to the depths!
+        </Reveal> 
+
+        <Reveal as="p" className="about__text" delay={100}>
+          Cannonballs on the other hand, are used to attack your enemies. Not every cannonball is the same. Different cannonballs have different properties,
           and some are rarer than others. 
           Load up depending on what's in front of you, then make them regret being there.
         </Reveal>
 
-        <Reveal delay={80}>
+        <Reveal delay={200}>
           <TagRow
             tags={[
-              { label: 'Regular Shot', detail: 'Reliable, no frills damage' },
-              { label: 'Chainshot', detail: 'Tangles rigging and slows a target' },
-              { label: 'Flameshot', detail: 'Sets the hull ablaze, dealing damage over time' },
-              { label: 'Explosive Shot', detail: 'Massive damage, leaves them burning' },
+              { label: 'Regular Shot', detail: 'A sturdy ball of iron ready to wound your enemy' },
+              { label: 'Chainshot', detail: 'Tangles rigging and slows a target', accent: '#3d7bc4' },
+              { label: 'Flameshot', detail: 'Sets the hull ablaze, dealing damage over time', accent: '#d97b2e' },
+              { label: 'Explosive Shot', detail: 'Massive damage, leaves them burning', accent: '#c1443a' },
             ]}
           />
         </Reveal>
+    
 
-        <Reveal as="p" className="about__text" delay={160}>
-          Every hit you take costs you planks, and planks are the only thing between your ship
-          and the bottom of the ocean, so keep your hold stocked or keep your distance!
-        </Reveal>
+      </About>
 
+      <Divider />
+
+      <About
+        heading="Know your enemies"
+        leftImage="/assets/icons/Explosion Flat White 256.png"
+        leftAlt="Explosion icon"
+        leftShift="top"
+        rightImage="/assets/icons/Skull Flat White 256.png"
+        rightAlt="Skull icon"
+        rightShift="bottom"
+      >
         <Reveal as="p" className="about__text">
-          Knowing who you're up against is important too. Ghost crews can teleport clean through your broadside,
+          Knowing who you're up against is important too. While your average rogue merchant
+          might not give you much trouble, Ghost crews can teleport clean through your broadside,
           pirates fight dirty with mixed ammo and deployable explosives, and the Navy can
           patch their own hull mid-fight. Run into a captain's ship and you're facing something
           worse, an elite commander wielding a powerful special ability of their own against you!
-        </Reveal>      
+        </Reveal>
 
-      </About>
+        <div className="features-carousel-gap">
+          <Carousel images={ADVENTURE_IMAGES} />
+        </div>
+
+        </About>   
 
       <Showcase
         image="/assets/images/Combat.png"
@@ -163,40 +235,6 @@ export default function Features() {
         topTilt="left"
         bottomTilt="right"
         imagePosition="center 15%"
-      />
-
-      <About
-        heading="Grow Your Ship's Power"
-        leftImage="/assets/icons/PVP 2 Flat White 256.png"
-        leftAlt="PVP icon"
-        leftShift="bottom"
-        rightImage="/assets/icons/Chest Flat White 256.png"
-        rightAlt="Treasure Chest icon"
-        rightShift="top"
-      >
-        <Reveal as="p" className="about__text">
-          Every voyage completed and every enemy sent to the bottom earns
-          <span className="about__emphasis"> gold and fame</span>, and fame alone will
-          level up your ship's base stats over time.
-        </Reveal>
-
-        <Reveal as="p" className="about__text" delay={120}>
-          Gold buys voyages and cosmetics, but also the raw resources you gather out on the 
-          water or salvage from voyages, and
-          those resources are what you'll need to
-          <span className="about__emphasis"> craft perks</span>, powerful abilities you can mix
-          and match to build a ship that fights the way you want it to. Level up enough, and
-          you'll unlock even more perk slots to stack them together.
-        </Reveal>
-      </About>
-
-      <Showcase
-        image="/assets/images/GhostBrazier.png"
-        alt="A ghostly brazier"
-        topCaption="Some fires"
-        bottomCaption="were never meant to be lit"
-        topTilt="right"
-        bottomTilt="left"
       />
 
       <About
@@ -220,14 +258,7 @@ export default function Features() {
         </Reveal>
       </About>
 
-      <Showcase
-        image="/assets/images/GhostBrazier.png"
-        alt="A ghostly brazier"
-        topCaption="Some fires"
-        bottomCaption="were never meant to be lit"
-        topTilt="right"
-        bottomTilt="left"
-      />      
+      <Divider />
 
       <About
         heading="Customize Your Captain"
@@ -255,6 +286,7 @@ export default function Features() {
 
         <Reveal delay={80}>
           <TagRow
+            variant="chips"
             tags={[
               { label: 'Hull Colour'},
               { label: 'Hull Trim Colour'},
@@ -269,7 +301,15 @@ export default function Features() {
 
       </About>
 
-      
+      <Showcase
+        image="/assets/images/Combat.png"
+        alt="Tiny Captain in combat"
+        topCaption="Sink rival crews"
+        bottomCaption="and establish your reputation"
+        topTilt="left"
+        bottomTilt="right"
+        imagePosition="center 15%"
+      />      
 
       <Cta />
     </>
