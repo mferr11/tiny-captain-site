@@ -102,22 +102,20 @@ export default function Home() {
         }
       >
         <p className="about__text">
-          Be a Tiny Captain and command a tiny ship in a vast, cursed ocean.  Sail, fight, and loot your
+          Become a Tiny Captain and command a tiny ship in a vast, cursed ocean. 
+          <span className="about__emphasis"> Sail, fight, and loot</span> your
           way across a variety of regions, from sun-drenched isles to cursed graveyards. Trade cannon fire
-          with
-          <span className="about__emphasis"> rival pirates</span>, dodge the disciplined broadsides of
-          <span className="about__emphasis"> the Navy</span>, and brave the fog-choked wrecks
-          where <span className="about__emphasis">ghost ships</span> still sail long after their crews went
+          with rival pirates, dodge the disciplined broadsides of the Navy, and brave the fog-choked wrecks
+          where ghost ships still sail long after their crews went
           down. Every voyage brings loot, every upgrade makes you deadlier, and every choice leaves a
           mark on the world around you.
         </p>
 
         <p className="about__text">
-          But not every wreck is just wreckage. Legend speaks of{' '}
-          <span className="about__emphasis">Captain Marrow</span>, a pirate whose name still
-          causes a silence to fall in every port, and of{' '}
-          <span className="about__emphasis">three relics</span> tied to whatever fate befell
-          him. Rumor has it the first lies aboard a sunken wreck, protected by something that never
+          But not every wreck is just wreckage. Legend speaks of 
+          <span className="about__emphasis"> Captain Marrow</span>, and of three relics tied 
+          to whatever fate befell him. Rumor has it the first lies aboard a sunken wreck, 
+          protected by something that never
           stopped guarding it. Chase the legend far enough, and you might uncover
           <span className="about__emphasis"> his long lost treasure</span>, along with what what really
           happened to Marrow, and what's waiting to rise if you're not careful...
@@ -146,10 +144,8 @@ export default function Home() {
           Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic 
           archipelago inhabited by rogue merchants. As you begin to explore, you'll encounter beautiful coral 
           reefs and verdant kelp forests, but also treacherous whirlpools and sunken wrecks.
-          And be ready to batten down the hatches, as you weather 
-          dangerous storms and navigate through 
-          thick fog banks, as even the ocean itself
-          can be a formidable adversary.
+          And be ready to batten down the hatches as you weather dangerous storms and navigate 
+          through thick fog banks, as even the ocean itself can be a formidable adversary.
         </p>
 
         <p className="about__text">
@@ -192,16 +188,16 @@ export default function Home() {
           <span className="about__emphasis"> gold and fame.</span> Use gold to purchase
           supplies and cosmetics, allowing you to customise your ship's appearance to your liking.
           And when you earn enough fame you'll level up your ship,
-          boosting your <span className="about__emphasis"> health, speed, cargo capacity
-            and firepower!</span>
+          boosting your health, speed, cargo capacity
+          and firepower!
         </p>
 
         <p className="about__text">
-          Collect resources and unlock crafting recipes for perks, powerful abilities that can
-          turn the tide of battle in your favour. Overwhelm your foes with the <span className="about__emphasis">mighty triple gun</span>,
-          sustain yourself during battle with <span className="about__emphasis">lifestealing leeching rounds</span>, or outmaneuver your foes
-          with the <span className="about__emphasis">speed of the wind burst!</span> Combine perks to create a ship that suits your playstyle,
-          and become the most feared pirate on the seas!
+          Collect resources and <span className="about__emphasis">unlock crafting recipes for perks</span>, powerful abilities that can
+          turn the tide of battle in your favour. Overwhelm your foes with the mighty triple gun,
+          sustain yourself during battle with lifestealing leeching rounds, or outmaneuver your foes
+          with the speed of the wind burst! Combine perks to create a ship that suits your playstyle,
+          and <span className="about__emphasis">become the most feared pirate on the seas!</span>
         </p>
       </About>
 
