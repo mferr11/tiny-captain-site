@@ -54,7 +54,7 @@ export default function Story() {
           The one rule every sailor understood without ever needing to say it aloud was simple. 
           Don't disturb the dead. The Navy didn't know that rule, or didn't care. Chasing a 
           rich vein of ore, their drilling rigs bore straight into a century old wreck, unleashing
-          a something ancient and restless out onto the world. That Navy fleet never left the graveyard,
+          something ancient and restless out onto the world. That Navy fleet never left the graveyard,
           but something else did.
         </p>
       </About>
