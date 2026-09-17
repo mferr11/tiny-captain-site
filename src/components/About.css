@@ -62,7 +62,25 @@
 
 .about__copy {
   grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   text-align: center;
+}
+
+.about--top-left .about__copy > .about__text:first-child,
+.about--bottom-left .about__copy > .about__text:last-child {
+  align-self: flex-start;
+  text-align: left;
+  max-width: 640px;
+}
+
+.about--top-right .about__copy > .about__text:first-child,
+.about--bottom-right .about__copy > .about__text:last-child {
+  align-self: flex-end;
+  text-align: right;
+  max-width: 640px;
 }
 
 .about__text {
@@ -102,6 +120,15 @@
   .about__icon {
     width: 72px;
     height: 72px;
+  }
+
+  .about--top-left .about__copy > .about__text:first-child,
+  .about--top-right .about__copy > .about__text:first-child,
+  .about--bottom-left .about__copy > .about__text:last-child,
+  .about--bottom-right .about__copy > .about__text:last-child {
+    align-self: stretch;
+    text-align: left;
+    max-width: none;
   }
 }
 

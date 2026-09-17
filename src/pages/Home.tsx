@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import About from '../components/About'
 import Carousel from '../components/Carousel'
 import Cta from '../components/Cta'
+import Reveal from '../components/Reveal'
 import Showcase from '../components/Showcase'
 import { STEAM_URL } from '../constants'
 import './Home.css'
@@ -101,25 +102,25 @@ export default function Home() {
           </Link>
         }
       >
-        <p className="about__text">
-          Become a Tiny Captain and command a tiny ship in a vast, cursed ocean. 
+        <Reveal as="p" className="about__text">
+          Become a Tiny Captain and command a tiny ship in a vast, cursed ocean.
           <span className="about__emphasis"> Sail, fight, and loot</span> your
           way across a variety of regions, from sun-drenched isles to cursed graveyards. Trade cannon fire
           with rival pirates, dodge the disciplined broadsides of the Navy, and brave the fog-choked wrecks
           where ghost ships still sail long after their crews went
           down. Every voyage brings loot, every upgrade makes you deadlier, and every choice leaves a
           mark on the world around you.
-        </p>
+        </Reveal>
 
-        <p className="about__text">
-          But not every wreck is just wreckage. Legend speaks of 
-          <span className="about__emphasis"> Captain Marrow</span>, and of three relics tied 
-          to whatever fate befell him. Rumor has it the first lies aboard a sunken wreck, 
+        <Reveal as="p" className="about__text" delay={120}>
+          But not every wreck is just wreckage. Legend speaks of
+          <span className="about__emphasis"> Captain Marrow</span>, and of three relics tied
+          to whatever fate befell him. Rumor has it the first lies aboard a sunken wreck,
           protected by something that never
           stopped guarding it. Chase the legend far enough, and you might uncover
           <span className="about__emphasis"> his long lost treasure</span>, along with what what really
           happened to Marrow, and what's waiting to rise if you're not careful...
-        </p>
+        </Reveal>
       </About>
 
       <Showcase
@@ -140,21 +141,21 @@ export default function Home() {
         rightAlt="Barrel icon"
         rightShift="top"
       >
-        <p className="about__text">
-          Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic 
-          archipelago inhabited by rogue merchants. As you begin to explore, you'll encounter beautiful coral 
+        <Reveal as="p" className="about__text">
+          Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic
+          archipelago inhabited by rogue merchants. As you begin to explore, you'll encounter beautiful coral
           reefs and verdant kelp forests, but also treacherous whirlpools and sunken wrecks.
-          And be ready to batten down the hatches as you weather dangerous storms and navigate 
+          And be ready to batten down the hatches as you weather dangerous storms and navigate
           through thick fog banks, as even the ocean itself can be a formidable adversary.
-        </p>
+        </Reveal>
 
-        <p className="about__text">
-          Outside the Sunshard Isles, you'll find the <span className="about__emphasis">Pirate Freewaters</span>, 
-          the <span className="about__emphasis">Navy's Iron Dominion</span>, and the eerie 
-          <span className="about__emphasis"> Sunken Graveyard</span>, each with its own dangers and secrets. 
-          Outside these three regions, danger lurks in the unknown and uncharted waters, where 
+        <Reveal as="p" className="about__text" delay={120}>
+          Outside the Sunshard Isles, you'll find the <span className="about__emphasis">Pirate Freewaters</span>,
+          the <span className="about__emphasis">Navy's Iron Dominion</span>, and the eerie
+          <span className="about__emphasis"> Sunken Graveyard</span>, each with its own dangers and secrets.
+          Outside these three regions, danger lurks in the unknown and uncharted waters, where
           something bigger than any ship may be waiting to strike...
-        </p>
+        </Reveal>
       </About>
 
       <Carousel images={ADVENTURE_IMAGES} />
@@ -183,22 +184,22 @@ export default function Home() {
           </Link>
         }
       >
-        <p className="about__text">
+        <Reveal as="p" className="about__text">
           Complete voyages, loot sunken wrecks, and defeat rival crews to earn
           <span className="about__emphasis"> gold and fame.</span> Use gold to purchase
           supplies and cosmetics, allowing you to customise your ship's appearance to your liking.
           And when you earn enough fame you'll level up your ship,
           boosting your health, speed, cargo capacity
           and firepower!
-        </p>
+        </Reveal>
 
-        <p className="about__text">
+        <Reveal as="p" className="about__text" delay={120}>
           Collect resources and <span className="about__emphasis">unlock crafting recipes for perks</span>, powerful abilities that can
           turn the tide of battle in your favour. Overwhelm your foes with the mighty triple gun,
           sustain yourself during battle with lifestealing leeching rounds, or outmaneuver your foes
           with the speed of the wind burst! Combine perks to create a ship that suits your playstyle,
           and <span className="about__emphasis">become the most feared pirate on the seas!</span>
-        </p>
+        </Reveal>
       </About>
 
       <Showcase
