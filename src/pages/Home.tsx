@@ -116,8 +116,7 @@ export default function Home() {
           But not every wreck is just wreckage. Legend speaks of
           <span className="about__emphasis"> Captain Marrow</span>, and of three relics tied
           to whatever fate befell him. Rumor has it the first lies aboard a sunken wreck,
-          protected by something that never
-          stopped guarding it. Chase the legend far enough, and you might uncover
+          protected by an ancient foe. Chase the legend far enough, and you might uncover
           <span className="about__emphasis"> his long lost treasure</span>, along with what what really
           happened to Marrow, and what's waiting to rise if you're not careful...
         </Reveal>
@@ -143,8 +142,8 @@ export default function Home() {
       >
         <Reveal as="p" className="about__text">
           Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic
-          archipelago inhabited by rogue merchants. As you begin to explore, you'll encounter beautiful coral
-          reefs and verdant kelp forests, but also treacherous whirlpools and sunken wrecks.
+          archipelago inhabited by rogue merchants. As you explore you'll encounter beautiful coral
+          reefs and verdant kelp forests, but also treacherous whirlpools and sunken ruins.
           And be ready to batten down the hatches as you weather dangerous storms and navigate
           through thick fog banks, as even the ocean itself can be a formidable adversary.
         </Reveal>

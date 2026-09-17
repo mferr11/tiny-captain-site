@@ -1,6 +1,6 @@
 .about {
   display: grid;
-  grid-template-columns: 1fr minmax(0, 900px) 1fr;
+  grid-template-columns: 1fr minmax(0, 1100px) 1fr;
   grid-template-areas:
     '.     heading .'
     'iconL copy    iconR'
@@ -9,8 +9,8 @@
   justify-items: center;
   column-gap: 24px;
   max-width: 1600px;
-  margin: 140px auto 0;
-  padding: 0 40px 64px;
+  margin: 120px auto 0;
+  padding: 0 80px 64px;
 }
 
 .about__icon {
@@ -62,30 +62,12 @@
 
 .about__copy {
   grid-area: copy;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
   text-align: center;
-}
-
-.about--top-left .about__copy > .about__text:first-child,
-.about--bottom-left .about__copy > .about__text:last-child {
-  align-self: flex-start;
-  text-align: left;
-  max-width: 640px;
-}
-
-.about--top-right .about__copy > .about__text:first-child,
-.about--bottom-right .about__copy > .about__text:last-child {
-  align-self: flex-end;
-  text-align: right;
-  max-width: 640px;
 }
 
 .about__text {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 1rem + 0.4vw, 1.4rem);
   line-height: 1.6;
   color: var(--color-text-muted);
   margin: 0;
@@ -120,15 +102,6 @@
   .about__icon {
     width: 72px;
     height: 72px;
-  }
-
-  .about--top-left .about__copy > .about__text:first-child,
-  .about--top-right .about__copy > .about__text:first-child,
-  .about--bottom-left .about__copy > .about__text:last-child,
-  .about--bottom-right .about__copy > .about__text:last-child {
-    align-self: stretch;
-    text-align: left;
-    max-width: none;
   }
 }
 
