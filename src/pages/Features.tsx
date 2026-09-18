@@ -158,12 +158,13 @@ export default function Features() {
       </About>      
 
       <Showcase
-        image="/assets/images/IslandExploration.png"
+        image="/assets/images/CompassWreckFight.png"
         alt="Tiny Captain exploring an island"
-        topCaption="Uncharted waters"
-        bottomCaption="are waiting to be sailed"
+        topCaption="Dangers lurk"
+        bottomCaption="out on the waves"
         topTilt="left"
         bottomTilt="right"
+        imagePosition="center 20%"
       />
 
       <About
@@ -221,6 +222,7 @@ export default function Features() {
           worse, an elite commander wielding a powerful special ability of their own against you!
         </Reveal>
 
+
         <div className="features-carousel-gap">
           <Carousel images={ADVENTURE_IMAGES} />
         </div>
@@ -228,13 +230,13 @@ export default function Features() {
         </About>   
 
       <Showcase
-        image="/assets/images/Combat.png"
+        image="/assets/images/CaptainCombat.png"
         alt="Tiny Captain in combat"
         topCaption="Sink rival crews"
         bottomCaption="and establish your reputation"
         topTilt="left"
         bottomTilt="right"
-        imagePosition="center 15%"
+        imagePosition="center 30%"
       />
 
       <About
@@ -261,7 +263,7 @@ export default function Features() {
       <Divider />
 
       <About
-        heading="Customize Your Captain"
+        heading="Customise Your Captain"
         leftAlt="Coin icon"
       >
         <Reveal as="p" className="about__text">
@@ -302,13 +304,13 @@ export default function Features() {
       </About>
 
       <Showcase
-        image="/assets/images/Combat.png"
+        image="/assets/images/GhostCombat.png"
         alt="Tiny Captain in combat"
-        topCaption="Sink rival crews"
-        bottomCaption="and establish your reputation"
+        topCaption="Your crew is waiting"
+        bottomCaption="for their legendary captain"
         topTilt="left"
         bottomTilt="right"
-        imagePosition="center 15%"
+        imagePosition="center 20%"
       />      
 
       <Cta />
