@@ -174,7 +174,6 @@
 .tag-marquee__track {
   display: flex;
   width: max-content;
-  gap: 16px;
   animation: tag-marquee-scroll calc(var(--tag-marquee-count, 6) * 6s) linear infinite;
 }
 
@@ -194,6 +193,7 @@
   flex-direction: column;
   gap: 6px;
   width: 380px;
+  margin-right: 16px;
   padding: 20px 22px;
   border: 3px solid rgba(var(--color-gold-rgb, 224, 169, 64), 0.22);
   border-radius: 10px;

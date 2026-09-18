@@ -7,14 +7,11 @@ import Showcase from '../components/Showcase'
 import TagRow from '../components/TagRow'
 import './Features.css'
 
-const ADVENTURE_IMAGES = [
-  { src: '/assets/images/SunkenBattlefield.png', alt: 'A sunken battlefield', title: 'Sunken Battlefield' },
-  { src: '/assets/images/KelpForest.jpg', alt: 'A kelp forest', title: 'Kelp Forest' },
-  { src: '/assets/images/SpiritRuins.png', alt: 'Ancient spirit ruins', title: 'Ancient Ruins' },
-  { src: '/assets/images/DeepGraveyard.png', alt: 'The sunken graveyard', title: 'The Sunken Graveyard' },
-  { src: '/assets/images/SunriseShipwreck.png', alt: 'A shipwreck at sunrise', title: 'Shipwreck at Sea' },
-  { src: '/assets/images/GhostBrazier.png', alt: 'A ghostly brazier', title: 'A Mysterious Tower' },
-  { src: '/assets/images/CoralReef.jpg', alt: 'A coral reef', title: 'Coral Reef'},
+const ENEMY_IMAGES = [
+  { src: '/assets/images/RogueMerchantsEnemy.png', alt: 'A pair of rogue merchant', title: 'Rogue Merchants' },
+  { src: '/assets/images/GhostShipEnemy.png', alt: 'A ghost ship', title: 'Ghost Ships' },
+  { src: '/assets/images/PirateShipEnemy.png', alt: 'A pirate ship', title: 'Pirates' },
+  { src: '/assets/images/NavyShipEnemy.png', alt: 'A navy ship', title: 'The Navy' },
 ]
 
 export default function Features() {
@@ -224,7 +221,7 @@ export default function Features() {
 
 
         <div className="features-carousel-gap">
-          <Carousel images={ADVENTURE_IMAGES} />
+          <Carousel images={ENEMY_IMAGES} />
         </div>
 
         </About>   
