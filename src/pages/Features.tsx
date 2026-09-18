@@ -78,6 +78,23 @@ export default function Features() {
       <Divider />
 
       <About
+        heading="Follow the Campaign"
+      >
+        <Reveal as="p" className="about__text">
+          Not every voyage is one you can repeat. Scattered across the world are
+          <span className="about__emphasis"> campaign voyages</span>, one-shot, story-driven
+          missions that push the plot of Tiny Captain forward instead of just paying out gold.
+        </Reveal>
+
+        <Reveal as="p" className="about__text" delay={120}>
+          These voyages are key to making meaningfull progression throughout the game. Completing
+          campaign missions will unlock new quests, new types of enemies, and even entirely new regions.
+        </Reveal>
+      </About>
+
+      <Divider />      
+
+      <About
         heading="Explore an Uncharted Ocean"
         leftImage="/assets/icons/Compass Flat White 256.png"
         leftAlt="Compass icon"
@@ -226,38 +243,7 @@ export default function Features() {
 
         </About>   
 
-      <Showcase
-        image="/assets/images/CaptainCombat.png"
-        alt="Tiny Captain in combat"
-        topCaption="Sink rival crews"
-        bottomCaption="and establish your reputation"
-        topTilt="left"
-        bottomTilt="right"
-        imagePosition="center 30%"
-      />
-
-      <About
-        heading="Follow the Campaign"
-        leftImage="/assets/icons/Skull Flat White 256.png"
-        leftAlt="Skull icon"
-        leftShift="top"
-        rightImage="/assets/icons/Scroll Flat White 256.png"
-        rightAlt="Scroll icon"
-        rightShift="bottom"
-      >
-        <Reveal as="p" className="about__text">
-          Not every voyage is one you can repeat. Scattered across the world are
-          <span className="about__emphasis"> campaign voyages</span>, one-shot, story-driven
-          missions that push the plot of Tiny Captain forward instead of just paying out gold.
-        </Reveal>
-
-        <Reveal as="p" className="about__text" delay={120}>
-          These voyages are key to making meaningfull progression throughout the game. Completing
-          campaign missions will unlock new quests, new types of enemies, and even entirely new regions.
-        </Reveal>
-      </About>
-
-      <Divider />
+      {/* <Divider />
 
       <About
         heading="Customise Your Captain"
@@ -270,7 +256,7 @@ export default function Features() {
         </Reveal>
 
         <Reveal delay={120}>
-          {/* TODO: swap in the real cosmetics showcase reel once it's rendered */}
+          TODO: swap in the real cosmetics showcase reel once it's rendered
           <video
             className="features-cosmetics-video"
             src="/assets/videos/CosmeticsShowcase.mp4"
@@ -298,7 +284,7 @@ export default function Features() {
           />
         </Reveal>
 
-      </About>
+      </About> */}
 
       <Showcase
         image="/assets/images/SunriseShipwreck.png"
