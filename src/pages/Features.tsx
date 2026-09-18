@@ -125,7 +125,7 @@ export default function Features() {
           Every voyage you complete and every enemy you defeat earns you gold and fame. Fame alone 
           will level up your ship's base stats over time, and gold is what you'll need to 
           purchase new voyages and cosmetics. But if you want to really upgrade your ship,
-          you'll need those resources to craft perks, powerful abilities that will turn the tide in battle.
+          you'll need resources to craft perks, powerful abilities that will turn the tide in battle.
           Gathering enough resources to craft perks is no easy task, but the rewards are well worth it.
         </Reveal>
 
@@ -178,8 +178,8 @@ export default function Features() {
       >
 
         <Reveal as="p" className="about__text">
-          Planks are used to repair your ship, and every hit you take costs you planks. They're the only 
-          thing between your ship
+          Planks are used to repair your ship, and they're the only 
+          thing between you
           and the bottom of the ocean, so keep your hold stocked or you'll quickly sink to the depths!
         </Reveal> 
 
@@ -304,14 +304,14 @@ export default function Features() {
       </About>
 
       <Showcase
-        image="/assets/images/GhostCombat.png"
-        alt="Tiny Captain in combat"
+        image="/assets/images/SunriseShipwreck.png"
+        alt="Tiny Captain sunrise screenshot"
         topCaption="Your crew is waiting"
         bottomCaption="for their legendary captain"
-        topTilt="left"
-        bottomTilt="right"
-        imagePosition="center 20%"
-      />      
+        topTilt="right"
+        bottomTilt="left"
+        imagePosition="center 15%"
+      />     
 
       <Cta />
     </>
