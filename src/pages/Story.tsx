@@ -11,7 +11,7 @@ export default function Story() {
           <p className="story-hero__eyebrow">The Story</p>
           <h1 className="story-hero__title">Some Legends Are Best Left Buried</h1>
           <p className="story-hero__text">
-            The Shipwreck Graveyard wasn't always the fog choked cursed battleground it is today.
+            The Sunken Graveyard wasn't always the fog choked cursed battleground it is today.
             In the past, it was the final resting place for many ships that sailed the seas, home 
             to spectral sailors who still had a purpose to fulfill. There was an understanding 
             between the living and the dead, a mutual respect that allowed both to coexist in peace.
