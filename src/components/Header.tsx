@@ -1,11 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { NAV_LINKS, STEAM_URL } from '../constants'
+import ExternalLink from './ExternalLink'
 import './Header.css'
+
+// Matches the breakpoint in Header.css where the nav collapses into the menu.
+const MOBILE_MENU_QUERY = '(max-width: 768px)'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
+  const headerRef = useRef<HTMLElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     setMenuOpen(false)
@@ -13,21 +19,45 @@ export default function Header() {
 
   useEffect(() => {
     if (!menuOpen) return
+
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape') setMenuOpen(false)
+      if (event.key !== 'Escape') return
+      setMenuOpen(false)
+      toggleRef.current?.focus()
     }
+
+    function handlePointerDown(event: PointerEvent) {
+      if (!headerRef.current?.contains(event.target as Node)) setMenuOpen(false)
+    }
+
+    // The menu only exists below the breakpoint, so close it if the window grows
+    // past it rather than leaving the page scroll-locked behind a hidden menu.
+    const mobileQuery = window.matchMedia(MOBILE_MENU_QUERY)
+    function handleBreakpointChange() {
+      if (!mobileQuery.matches) setMenuOpen(false)
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    document.addEventListener('pointerdown', handlePointerDown)
+    mobileQuery.addEventListener('change', handleBreakpointChange)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('pointerdown', handlePointerDown)
+      mobileQuery.removeEventListener('change', handleBreakpointChange)
+    }
   }, [menuOpen])
 
   return (
-    <header className={`site-header${menuOpen ? ' site-header--open' : ''}`}>
+    <header ref={headerRef} className={`site-header${menuOpen ? ' site-header--open' : ''}`}>
       <div className="site-header__inner">
         <div className="site-header__left">
           <NavLink to="/" className="site-header__logo">
             Tiny Captain
           </NavLink>
-          <nav id="site-header-nav" className="site-header__nav">
+          <nav id="site-header-nav" className="site-header__nav" aria-label="Main">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.to}
@@ -39,20 +69,19 @@ export default function Header() {
                 {link.label}
               </NavLink>
             ))}
-            <a
+            <ExternalLink
               className="site-header__link site-header__link--wishlist"
               href={STEAM_URL}
-              target="_blank"
-              rel="noreferrer"
             >
               Wishlist on Steam
-            </a>
+            </ExternalLink>
           </nav>
         </div>
-        <a className="site-header__wishlist" href={STEAM_URL} target="_blank" rel="noreferrer">
+        <ExternalLink className="site-header__wishlist" href={STEAM_URL}>
           Wishlist
-        </a>
+        </ExternalLink>
         <button
+          ref={toggleRef}
           type="button"
           className="site-header__toggle"
           aria-expanded={menuOpen}

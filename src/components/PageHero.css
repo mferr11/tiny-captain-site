@@ -1,0 +1,92 @@
+.page-hero {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  background-image: var(--page-hero-image-webp);
+  background-size: cover;
+  background-position: var(--page-hero-position, center);
+}
+
+/* Extends 1px past the bottom edge to cover the background image's anti-aliased
+   last row, which shows as a faint line at fractional hero heights. */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -1px;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--color-bg-rgb), 0.45) 0%,
+    rgba(var(--color-bg-rgb), 0.75) 30%,
+    rgba(var(--color-bg-rgb), 1) 85%
+  );
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 40px 80px;
+  text-align: center;
+}
+
+.page-hero__eyebrow {
+  font-weight: 550;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 5px rgba(var(--color-bg-super-deep-rgb), 1);
+  color: var(--color-gold);
+  margin: 0 0 12px;
+}
+
+.page-hero__title {
+  font-weight: 550;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-shadow: 6px 6px 0px rgba(var(--color-bg-super-deep-rgb), 0.5);
+  margin: 0 0 24px;
+}
+
+.page-hero__text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .page-hero {
+    background-image: var(--page-hero-image-small-webp);
+  }
+
+  .page-hero__inner {
+    padding: 80px 20px 60px;
+  }
+
+  .page-hero__eyebrow {
+    font-size: 1.15rem;
+  }
+
+  .page-hero__text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Browsers that understand typed image-set() get the AVIF, the rest keep the WebP. */
+@supports (background-image: image-set(url('x.avif') type('image/avif'))) {
+  .page-hero {
+    background-image: var(--page-hero-image);
+  }
+
+  @media (max-width: 640px) {
+    .page-hero {
+      background-image: var(--page-hero-image-small);
+    }
+  }
+}

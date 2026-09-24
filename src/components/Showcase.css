@@ -23,9 +23,8 @@
   object-fit: cover;
 }
 
-/* fill='%230a0e1a' below is a literal copy of --color-bg (#0a0e1a) — data-URI
-   SVG backgrounds can't read CSS custom properties, so update it by hand if
-   --color-bg ever changes. */
+/* The waves are the page background colour, cut into a wave shape by an SVG
+   mask, so they always match --color-bg. */
 .showcase::before,
 .showcase::after {
   content: '';
@@ -33,38 +32,47 @@
   left: 0;
   right: 0;
   height: 24px;
-  background-repeat: repeat-x;
-  background-size: 50px 24px;
+  background: var(--color-bg);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 50px 24px;
+  mask-size: 50px 24px;
   z-index: 1;
 }
 
 .showcase::before {
   top: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,0 L0,0 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,0 L0,0 Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,0 L0,0 Z'/%3E%3C/svg%3E");
   animation: showcase-wave-left 1.5s linear infinite;
 }
 
 .showcase::after {
   bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,20 L0,20 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,20 L0,20 Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,20 L0,20 Z'/%3E%3C/svg%3E");
   animation: showcase-wave-right 1.5s linear infinite;
 }
 
 @keyframes showcase-wave-left {
   from {
-    background-position-x: 0;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
   }
   to {
-    background-position-x: -50px;
+    -webkit-mask-position: -50px 0;
+    mask-position: -50px 0;
   }
 }
 
 @keyframes showcase-wave-right {
   from {
-    background-position-x: 0;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
   }
   to {
-    background-position-x: 50px;
+    -webkit-mask-position: 50px 0;
+    mask-position: 50px 0;
   }
 }
 
@@ -136,24 +144,29 @@
   .showcase::before,
   .showcase::after {
     height: 14px;
-    background-size: 30px 14px;
+    -webkit-mask-size: 30px 14px;
+    mask-size: 30px 14px;
   }
 
   @keyframes showcase-wave-left {
     from {
-      background-position-x: 0;
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
     }
     to {
-      background-position-x: -30px;
+      -webkit-mask-position: -30px 0;
+      mask-position: -30px 0;
     }
   }
 
   @keyframes showcase-wave-right {
     from {
-      background-position-x: 0;
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
     }
     to {
-      background-position-x: 30px;
+      -webkit-mask-position: 30px 0;
+      mask-position: 30px 0;
     }
   }
 }

@@ -6,10 +6,8 @@ type IconShift = 'top' | 'bottom'
 type AboutProps = {
   heading: string
   leftImage?: string
-  leftAlt?: string
   leftShift?: IconShift
   rightImage?: string
-  rightAlt?: string
   rightShift?: IconShift
   cta?: ReactNode
   children: ReactNode
@@ -25,13 +23,12 @@ function iconClassName(side: 'left' | 'right', shift?: IconShift) {
   return classes.join(' ')
 }
 
+// The side icons are decorative, so they're hidden from screen readers.
 export default function About({
   heading,
   leftImage,
-  leftAlt = '',
   leftShift,
   rightImage,
-  rightAlt = '',
   rightShift,
   cta,
   children,
@@ -43,8 +40,7 @@ export default function About({
         <span
           className={iconClassName('left', leftShift)}
           style={iconStyle(leftImage)}
-          role="img"
-          aria-label={leftAlt}
+          aria-hidden="true"
         />
       )}
       <div className="about__copy">{children}</div>
@@ -52,8 +48,7 @@ export default function About({
         <span
           className={iconClassName('right', rightShift)}
           style={iconStyle(rightImage)}
-          role="img"
-          aria-label={rightAlt}
+          aria-hidden="true"
         />
       )}
       {cta && <div className="about__cta">{cta}</div>}

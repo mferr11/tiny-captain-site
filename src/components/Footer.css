@@ -47,7 +47,10 @@
   text-decoration: none;
   text-transform: uppercase;
   opacity: 0.85;
-  transition: opacity 0.15s ease, color 0.15s ease, transform 0.25s ease-in-out;
+  transition:
+    opacity 0.15s ease,
+    color 0.15s ease,
+    transform 0.25s ease-in-out;
 }
 
 .site-footer__link:hover {

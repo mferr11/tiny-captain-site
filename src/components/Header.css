@@ -47,7 +47,10 @@
   text-decoration: none;
   text-transform: uppercase;
   opacity: 0.9;
-  transition: opacity 0.15s ease, color 0.15s ease, transform 0.25s ease-in-out;
+  transition:
+    opacity 0.15s ease,
+    color 0.15s ease,
+    transform 0.25s ease-in-out;
 }
 
 .site-header__link:hover {
@@ -73,7 +76,10 @@
   border-radius: 999px;
   padding: 10px 26px;
   white-space: nowrap;
-  transition: background 0.25s ease, color 0.25s ease, scale 0.25s ease-in-out;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    scale 0.25s ease-in-out;
 }
 
 .site-header__wishlist:hover {
@@ -119,7 +125,9 @@
     height: 3px;
     border-radius: 2px;
     background: var(--color-gold);
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
   }
 
   .site-header--open .site-header__toggle-bar:nth-child(1) {
@@ -148,7 +156,10 @@
     visibility: hidden;
     opacity: 0;
     transform: translateY(-8px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s;
   }
 
   .site-header--open .site-header__nav {
