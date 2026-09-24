@@ -67,4 +67,8 @@
   .cta__inner {
     padding: 60px 20px;
   }
+
+  .cta__text {
+    font-size: 1.1rem;
+  }
 }
