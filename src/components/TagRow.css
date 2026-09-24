@@ -278,7 +278,21 @@
   }
 
   .tag-marquee__card {
-    width: 220px;
+    width: 240px;
     padding: 16px 18px;
+  }
+
+  .tag-marquee__kind {
+    position: static;
+    align-self: flex-start;
+  }
+
+  .tag-marquee__label {
+    padding-right: 0;
+    font-size: 1.3rem;
+  }
+
+  .tag-marquee__detail {
+    font-size: 1.1rem;
   }
 }

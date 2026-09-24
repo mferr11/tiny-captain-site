@@ -82,16 +82,96 @@
   scale: 1.05;
 }
 
-@media (max-width: 640px) {
+.site-header__link--wishlist,
+.site-header__toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
   .site-header__inner {
     padding: 14px 20px;
   }
 
-  .site-header__left {
-    gap: 20px;
+  .site-header__logo {
+    font-size: 1.5rem;
+  }
+
+  .site-header__wishlist {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    margin-right: -10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .site-header__toggle-bar {
+    display: block;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--color-gold);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .site-header--open .site-header__toggle-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .site-header--open .site-header__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header--open .site-header__toggle-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .site-header__nav {
-    gap: 16px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 20px 20px;
+    background: var(--color-bg-deep);
+    border-bottom: 2.5px solid rgba(var(--color-bg-light-rgb), 0.6);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .site-header--open .site-header__nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .site-header__link {
+    padding: 14px 0;
+    font-size: 1.25rem;
+  }
+
+  .site-header__link + .site-header__link {
+    border-top: 1px solid rgba(var(--color-bg-light-rgb), 0.35);
+  }
+
+  .site-header__link:hover {
+    transform: none;
+  }
+
+  .site-header__link--wishlist {
+    display: block;
+    color: var(--color-gold);
   }
 }

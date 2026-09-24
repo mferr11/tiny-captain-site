@@ -66,3 +66,21 @@ a {
   font-size: 1.2rem;
   padding: 20px 40px;
 }
+
+@media (hover: none) {
+  .btn-gold:hover {
+    scale: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .btn-gold {
+    font-size: 1rem;
+    padding: 16px 28px;
+  }
+
+  .btn-gold--large {
+    font-size: 1.1rem;
+    padding: 18px 32px;
+  }
+}

@@ -10,6 +10,10 @@
   aspect-ratio: 2.75 / 1;
   max-height: 70vh;
   overflow: hidden;
+  /* Stops the image 2px short of the top and bottom edges, which the waves
+     cover. At fractional pixel positions the waves' edge row is only partly
+     opaque, and without this the image showed through it as a hairline. */
+  clip-path: inset(2px 0);
 }
 
 .showcase__image {
@@ -22,8 +26,8 @@
 /* fill='%230a0e1a' below is a literal copy of --color-bg (#0a0e1a) — data-URI
    SVG backgrounds can't read CSS custom properties, so update it by hand if
    --color-bg ever changes. */
-.showcase__media::before,
-.showcase__media::after {
+.showcase::before,
+.showcase::after {
   content: '';
   position: absolute;
   left: 0;
@@ -34,14 +38,14 @@
   z-index: 1;
 }
 
-.showcase__media::before {
-  top: -1px;
+.showcase::before {
+  top: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,0 L0,0 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
   animation: showcase-wave-left 1.5s linear infinite;
 }
 
-.showcase__media::after {
-  bottom: -1px;
+.showcase::after {
+  bottom: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,20 L0,20 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
   animation: showcase-wave-right 1.5s linear infinite;
 }
@@ -65,8 +69,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .showcase__media::before,
-  .showcase__media::after {
+  .showcase::before,
+  .showcase::after {
     animation: none;
   }
 }
@@ -75,8 +79,8 @@
   position: absolute;
   z-index: 2;
   left: 50%;
-  width: fit-content;
-  max-width: 1600px;
+  width: max-content;
+  max-width: min(1600px, calc(100% - 32px));
   margin: 0;
   padding: 20px 32px;
   border-radius: 10px;
@@ -108,17 +112,29 @@
   rotate: 0.5deg;
 }
 
+@media (max-width: 900px) {
+  .showcase__caption {
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
 @media (max-width: 640px) {
   .showcase {
     margin-top: 60px;
   }
 
-  .showcase__caption {
-    padding: 14px 20px;
+  .showcase__media {
+    aspect-ratio: 16 / 10;
   }
 
-  .showcase__media::before,
-  .showcase__media::after {
+  .showcase__caption {
+    padding: 12px 18px;
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .showcase::before,
+  .showcase::after {
     height: 14px;
     background-size: 30px 14px;
   }

@@ -8,10 +8,12 @@
   background-position: center;
 }
 
+/* Extends 1px past the bottom edge to cover the background image's anti-aliased
+   last row, which shows as a faint line at fractional hero heights. */
 .story-hero::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 0 0 -1px;
   z-index: 0;
   background: linear-gradient(to bottom, rgba(var(--color-bg-rgb), 0.45) 0%, rgba(var(--color-bg-rgb), 0.75) 30%, rgba(var(--color-bg-rgb), 1.0) 85%);
 }
@@ -56,5 +58,13 @@
 @media (max-width: 640px) {
   .story-hero__inner {
     padding: 80px 20px 60px;
+  }
+
+  .story-hero__eyebrow {
+    font-size: 1.15rem;
+  }
+
+  .story-hero__text {
+    font-size: 1.1rem;
   }
 }
