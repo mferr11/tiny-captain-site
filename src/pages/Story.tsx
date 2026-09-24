@@ -43,7 +43,7 @@ export default function Story() {
       </About>
 
       <About heading="An Ancient Curse Is Unleashed" rightImage={ICONS.fire}>
-        <Reveal as="p" className="about__text">
+        <Reveal as="p" className="about__text" delay={100}>
           The one rule every sailor understood without ever needing to say it aloud was simple.
           Don't disturb the dead. The Navy didn't know that rule, or didn't care. Chasing a rich
           vein of ore, their drilling rigs bore straight into a century old wreck, unleashing
@@ -53,7 +53,7 @@ export default function Story() {
       </About>
 
       <About heading="The Spirit's Vengeance" leftImage={ICONS.skull}>
-        <Reveal as="p" className="about__text">
+        <Reveal as="p" className="about__text" delay={200}>
           Marrow's crew rise not to guard their gold, but to finish a fight they never got to have.
           Ghost ships begin drifting past the Graveyard's old boundaries, a rising tide of hauntings
           that bleeds out into the world. Sailors speak of spectral sails on the horizon, and
