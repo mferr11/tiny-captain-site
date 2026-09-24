@@ -10,6 +10,10 @@
   aspect-ratio: 2.75 / 1;
   max-height: 70vh;
   overflow: hidden;
+  /* Stops the image 2px short of the top and bottom edges, which the waves
+     cover. At fractional pixel positions the waves' edge row is only partly
+     opaque, and without this the image showed through it as a hairline. */
+  clip-path: inset(2px 0);
 }
 
 .showcase__image {
@@ -19,12 +23,7 @@
   object-fit: cover;
 }
 
-/* The waves hang off .showcase rather than .showcase__media so they sit outside
-   the media's overflow clip and can overlap the image edge by 1px. Each wave
-   also carries a solid 3px band along its flat edge: when the showcase lands on
-   a fractional pixel, the SVG tile's edge row is only partly opaque and the
-   image would show through as a hairline.
-   fill='%230a0e1a' below is a literal copy of --color-bg (#0a0e1a) — data-URI
+/* fill='%230a0e1a' below is a literal copy of --color-bg (#0a0e1a) — data-URI
    SVG backgrounds can't read CSS custom properties, so update it by hand if
    --color-bg ever changes. */
 .showcase::before,
@@ -35,21 +34,19 @@
   right: 0;
   height: 24px;
   background-repeat: repeat-x;
-  background-size: 100% 3px, 50px 24px;
+  background-size: 50px 24px;
   z-index: 1;
 }
 
 .showcase::before {
-  top: -1px;
-  background-position: 0 0, 0 0;
-  background-image: linear-gradient(var(--color-bg), var(--color-bg)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,0 L0,0 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,0 L0,0 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
   animation: showcase-wave-left 1.5s linear infinite;
 }
 
 .showcase::after {
-  bottom: -1px;
-  background-position: 0 100%, 0 0;
-  background-image: linear-gradient(var(--color-bg), var(--color-bg)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,20 L0,20 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q12.5,2 25,10 T50,10 L50,20 L0,20 Z' fill='%230a0e1a'/%3E%3C/svg%3E");
   animation: showcase-wave-right 1.5s linear infinite;
 }
 
@@ -139,7 +136,7 @@
   .showcase::before,
   .showcase::after {
     height: 14px;
-    background-size: 100% 3px, 30px 14px;
+    background-size: 30px 14px;
   }
 
   @keyframes showcase-wave-left {

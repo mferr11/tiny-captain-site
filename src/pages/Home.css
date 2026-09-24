@@ -10,7 +10,7 @@
 }
 
 /* The video stops 2px short of the hero's bottom edge so the overlay's opaque
-   bottom row is all that touches it — at fractional hero heights the video's
+   bottom row is all that touches it at fractional hero heights the video's
    anti-aliased edge would otherwise show as a faint line below the fade. */
 .hero__video {
   position: absolute;
@@ -148,13 +148,11 @@
   }
 
   .hero__overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--color-bg-rgb), 0.35) 0%,
-      rgba(var(--color-bg-rgb), 0.55) 50%,
-      rgba(var(--color-bg-rgb), 1.0) 100%
-    );
+    background:
+      linear-gradient(to left, rgba(var(--color-bg-rgb), 0.0) 0%, rgba(var(--color-bg-rgb), 0.5) 100%),
+      linear-gradient(to bottom, rgba(var(--color-bg-rgb), 0.35) 0%, rgba(var(--color-bg-rgb), 0.8) 50%, rgba(var(--color-bg-rgb), 1.0) 100%);
   }
+
 
   .hero__inner {
     padding: 48px 20px;
@@ -176,4 +174,3 @@
     font-size: 1rem;
   }
 }
-
