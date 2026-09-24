@@ -1,27 +1,40 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { HERO_VIDEO, ICONS, SCREENSHOTS } from '../assets'
 import About from '../components/About'
 import Carousel from '../components/Carousel'
 import Cta from '../components/Cta'
+import ExternalLink from '../components/ExternalLink'
 import Reveal from '../components/Reveal'
 import Showcase from '../components/Showcase'
 import { STEAM_URL } from '../constants'
+import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion'
 import './Home.css'
 
 const ADVENTURE_IMAGES = [
-  { src: '/assets/images/SunkenBattlefield.png', alt: 'A sunken battlefield', title: 'Sunken Battlefield' },
-  { src: '/assets/images/KelpForest.jpg', alt: 'A kelp forest', title: 'Kelp Forest' },
-  { src: '/assets/images/SpiritRuins.png', alt: 'Ancient spirit ruins', title: 'Ancient Ruins' },
-  { src: '/assets/images/DeepGraveyard.png', alt: 'The sunken graveyard', title: 'The Sunken Graveyard' },
-  { src: '/assets/images/SunriseShipwreck.png', alt: 'A shipwreck at sunrise', title: 'Shipwreck at Sea' },
-  { src: '/assets/images/GhostBrazier.png', alt: 'A ghostly brazier', title: 'A Mysterious Tower' },
-  { src: '/assets/images/CoralReef.jpg', alt: 'A coral reef', title: 'Coral Reef'},
+  {
+    image: SCREENSHOTS.sunkenBattlefield,
+    alt: 'A sunken battlefield',
+    title: 'Sunken Battlefield',
+  },
+  { image: SCREENSHOTS.kelpForest, alt: 'A kelp forest', title: 'Kelp Forest' },
+  { image: SCREENSHOTS.spiritRuins, alt: 'Ancient spirit ruins', title: 'Ancient Ruins' },
+  { image: SCREENSHOTS.deepGraveyard, alt: 'The Sunken Graveyard', title: 'The Sunken Graveyard' },
+  { image: SCREENSHOTS.sunriseShipwreck, alt: 'A shipwreck at sunrise', title: 'Shipwreck at Sea' },
+  { image: SCREENSHOTS.ghostBrazier, alt: 'A ghostly brazier', title: 'A Mysterious Tower' },
+  { image: SCREENSHOTS.coralReef, alt: 'A coral reef', title: 'Coral Reef' },
 ]
 
 const EYEBROW_WORDS = ['Hidden Secrets', 'Untold Riches', 'Adventure and Glory']
 const EYEBROW_ROTATE_MS = 3200
 
 function EyebrowRotator() {
+  const prefersReducedMotion = usePrefersReducedMotion()
+  if (prefersReducedMotion) return <span>{EYEBROW_WORDS[0]}</span>
+  return <AnimatedEyebrow />
+}
+
+function AnimatedEyebrow() {
   const [index, setIndex] = useState(0)
   const [hasRotated, setHasRotated] = useState(false)
   const previousIndexRef = useRef(0)
@@ -41,6 +54,7 @@ function EyebrowRotator() {
         <span
           key={`out-${previousIndexRef.current}`}
           className="hero__eyebrow-word hero__eyebrow-word--out"
+          aria-hidden="true"
         >
           {EYEBROW_WORDS[previousIndexRef.current]}
         </span>
@@ -52,18 +66,41 @@ function EyebrowRotator() {
   )
 }
 
+function HeroVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const prefersReducedMotion = usePrefersReducedMotion()
+
+  // autoPlay only applies on load, so handle the setting changing afterwards.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    if (prefersReducedMotion) video.pause()
+    else video.play().catch(() => {})
+  }, [prefersReducedMotion])
+
+  return (
+    <video
+      ref={videoRef}
+      className="hero__video"
+      poster={HERO_VIDEO.poster}
+      autoPlay={!prefersReducedMotion}
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      aria-hidden="true"
+    >
+      <source src={HERO_VIDEO.mobileMp4} type="video/mp4" media="(max-width: 640px)" />
+      <source src={HERO_VIDEO.mp4} type="video/mp4" />
+    </video>
+  )
+}
+
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <video
-          className="hero__video"
-          src="/assets/videos/HeroShot2.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+        <HeroVideo />
         <div className="hero__overlay" />
         <div className="hero__inner">
           <p className="hero__eyebrow">
@@ -75,13 +112,13 @@ export default function Home() {
             Captain
           </h1>
           <p className="hero__byline">A game by Mitchell Ferreira</p>
-          <a className="btn-gold hero__cta" href={STEAM_URL} target="_blank" rel="noreferrer">
+          <ExternalLink className="btn-gold hero__cta" href={STEAM_URL}>
             Wishlist on Steam
-          </a>
+          </ExternalLink>
         </div>
       </section>
       <Showcase
-        image="/assets/images/GhostBrazier.png"
+        image={SCREENSHOTS.ghostBrazier}
         alt="Tiny Captain sailing past a Ghost Brazier"
         topCaption="Discover an Epic Pirate Adventure"
         bottomCaption="Out on the Waves"
@@ -90,11 +127,9 @@ export default function Home() {
       />
       <About
         heading="About the Game"
-        leftImage="/assets/icons/Compass Flat White 256.png"
-        leftAlt="Compass icon"
+        leftImage={ICONS.compass}
         leftShift="top"
-        rightImage="/assets/icons/Scroll Flat White 256.png"
-        rightAlt="Scroll icon"
+        rightImage={ICONS.scroll}
         rightShift="bottom"
         cta={
           <Link to="/story" className="btn-gold">
@@ -104,26 +139,25 @@ export default function Home() {
       >
         <Reveal as="p" className="about__text">
           Become a Tiny Captain and command a tiny ship in a vast, cursed ocean.
-          <span className="about__emphasis"> Sail, fight, and loot</span> your
-          way across a variety of regions, from sun-drenched isles to cursed graveyards. Trade cannon fire
-          with rival pirates, dodge the disciplined broadsides of the Navy, and brave the fog-choked wrecks
-          where ghost ships still sail long after their crews went
-          down. Every voyage brings loot, every upgrade makes you deadlier, and every choice leaves a
-          mark on the world around you.
+          <span className="about__emphasis"> Sail, fight, and loot</span> your way across a variety
+          of regions, from sun-drenched isles to cursed graveyards. Trade cannon fire with rival
+          pirates, dodge the disciplined broadsides of the Navy, and brave the fog-choked wrecks
+          where ghost ships still sail long after their crews went down. Every voyage brings loot,
+          every upgrade makes you deadlier, and every choice leaves a mark on the world around you.
         </Reveal>
 
-        <Reveal as="p" className="about__text" delay={120}>
+        <Reveal as="p" className="about__text" delay={100}>
           But not every wreck is just wreckage. Legend speaks of
-          <span className="about__emphasis"> Captain Marrow</span>, and of three relics tied
-          to whatever fate befell him. Rumor has it the first lies aboard a sunken wreck,
-          protected by an ancient foe. Chase the legend far enough, and you might uncover
-          <span className="about__emphasis"> his long lost treasure</span>, along with what what really
+          <span className="about__emphasis"> Captain Marrow</span>, and of three relics tied to
+          whatever fate befell him. Rumour has it the first lies aboard a sunken wreck, protected by
+          an ancient foe. Chase the legend far enough, and you might uncover
+          <span className="about__emphasis"> his long lost treasure</span>, along with what really
           happened to Marrow, and what's waiting to rise if you're not careful...
         </Reveal>
       </About>
 
       <Showcase
-        image="/assets/images/KelpForest.jpg"
+        image={SCREENSHOTS.kelpForest}
         alt="Tiny Captain sailing through a kelp forest"
         topCaption="Secrets lurk in every corner"
         bottomCaption="waiting to be discovered"
@@ -133,34 +167,33 @@ export default function Home() {
 
       <About
         heading="Explore a World of Adventure"
-        leftImage="/assets/icons/Yen Flat White 256.png"
-        leftAlt="Coin icon"
+        leftImage={ICONS.yen}
         leftShift="bottom"
-        rightImage="/assets/icons/Barrel Flat White 256.png"
-        rightAlt="Barrel icon"
+        rightImage={ICONS.barrel}
         rightShift="top"
       >
         <Reveal as="p" className="about__text">
-          Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an idylic
-          archipelago inhabited by rogue merchants. As you explore you'll encounter beautiful coral
-          reefs and verdant kelp forests, but also treacherous whirlpools and sunken ruins.
-          And be ready to batten down the hatches as you weather dangerous storms and navigate
-          through thick fog banks, as even the ocean itself can be a formidable adversary.
+          Your journey starts in the <span className="about__emphasis">Sunshard Isles</span>, an
+          idyllic archipelago inhabited by rogue merchants. As you explore you'll encounter
+          beautiful coral reefs and verdant kelp forests, but also treacherous whirlpools and sunken
+          ruins. And be ready to batten down the hatches as you weather dangerous storms and
+          navigate through thick fog banks, as even the ocean itself can be a formidable adversary.
         </Reveal>
 
-        <Reveal as="p" className="about__text" delay={120}>
-          Outside the Sunshard Isles, you'll find the <span className="about__emphasis">Pirate Freewaters</span>,
-          the <span className="about__emphasis">Navy's Iron Dominion</span>, and the eerie
-          <span className="about__emphasis"> Sunken Graveyard</span>, each with its own dangers and secrets.
-          Outside these three regions, danger lurks in the unknown and uncharted waters, where
-          something bigger than any ship may be waiting to strike...
+        <Reveal as="p" className="about__text" delay={100}>
+          Outside the Sunshard Isles, you'll find the{' '}
+          <span className="about__emphasis">Pirate Freewaters</span>, the{' '}
+          <span className="about__emphasis">Navy's Iron Dominion</span>, and the eerie
+          <span className="about__emphasis"> Sunken Graveyard</span>, each with its own dangers and
+          secrets. Outside these three regions, danger lurks in the unknown and uncharted waters,
+          where something bigger than any ship may be waiting to strike...
         </Reveal>
       </About>
 
-      <Carousel images={ADVENTURE_IMAGES} />
+      <Carousel images={ADVENTURE_IMAGES} label="Places to explore" />
 
       <Showcase
-        image="/assets/images/Combat.png"
+        image={SCREENSHOTS.combat}
         alt="Tiny Captain in combat"
         topCaption="Sink rival crews"
         bottomCaption="and establish your reputation"
@@ -171,39 +204,38 @@ export default function Home() {
 
       <About
         heading="Level Up Your Ship"
-        leftImage="/assets/icons/PVP 2 Flat White 256.png"
-        leftAlt="PVP icon"
+        leftImage={ICONS.pvp}
         leftShift="top"
-        rightImage="/assets/icons/Chest Flat White 256.png"
-        rightAlt="Treasure Chest icon"
+        rightImage={ICONS.chest}
         rightShift="bottom"
         cta={
-          <Link to="/features" className="btn-gold">
+          <Link to="/gameplay" className="btn-gold">
             Explore gameplay features
           </Link>
         }
       >
         <Reveal as="p" className="about__text">
           Complete voyages, loot sunken wrecks, and defeat rival crews to earn
-          <span className="about__emphasis"> gold and fame.</span> Use gold to purchase
-          supplies and cosmetics, allowing you to customise your ship's appearance to your liking.
-          And when you earn enough fame you'll level up your ship,
-          boosting your health, speed, cargo capacity
+          <span className="about__emphasis"> gold and fame.</span> Use gold to purchase supplies and
+          cosmetics, allowing you to customise your ship's appearance to your liking. And when you
+          earn enough fame you'll level up your ship, boosting your health, speed, cargo capacity
           and firepower!
         </Reveal>
 
-        <Reveal as="p" className="about__text" delay={120}>
-          Collect resources and <span className="about__emphasis">unlock crafting recipes for perks</span>, powerful abilities that can
-          turn the tide of battle in your favour. Overwhelm your foes with the mighty triple gun,
-          sustain yourself during battle with lifestealing leeching rounds, or outmaneuver your foes
-          with the speed of the wind burst! Combine perks to create a ship that suits your playstyle,
-          and <span className="about__emphasis">become the most feared pirate on the seas!</span>
+        <Reveal as="p" className="about__text" delay={100}>
+          Collect resources and{' '}
+          <span className="about__emphasis">unlock crafting recipes for perks</span>, powerful
+          abilities that can turn the tide of battle in your favour. Overwhelm your foes with the
+          mighty triple gun, sustain yourself during battle with lifestealing leeching rounds, or
+          outmanoeuvre your foes with the speed of the wind burst! Combine perks to create a ship
+          that suits your playstyle, and{' '}
+          <span className="about__emphasis">become the most feared pirate on the seas!</span>
         </Reveal>
       </About>
 
       <Showcase
-        image="/assets/images/SunriseShipwreck.png"
-        alt="Tiny Captain sunrise screenshot"
+        image={SCREENSHOTS.sunriseShipwreck}
+        alt="A tiny ship sailing past a shipwreck at sunrise"
         topCaption="Your crew is waiting"
         bottomCaption="for their legendary captain"
         topTilt="right"

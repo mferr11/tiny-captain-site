@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from 'react'
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ElementType,
+  type ReactNode,
+} from 'react'
 import './Reveal.css'
 
 type RevealProps = {
@@ -8,7 +15,12 @@ type RevealProps = {
   delay?: number
 }
 
-export default function Reveal({ children, as: Tag = 'div', className = '', delay = 0 }: RevealProps) {
+export default function Reveal({
+  children,
+  as: Tag = 'div',
+  className = '',
+  delay = 0,
+}: RevealProps) {
   const ref = useRef<HTMLElement | null>(null)
   const [visible, setVisible] = useState(false)
 

@@ -46,25 +46,40 @@ export default function TagRow({ tags, variant = 'list', footnote }: TagRowProps
       </ul>
     )
   } else if (variant === 'marquee') {
+    // The track holds the tags twice so the scroll can loop seamlessly. The second
+    // copy is hidden from screen readers, and from everyone under reduced motion,
+    // where the track stops scrolling and wraps into a static grid instead.
     const looped = [...tags, ...tags]
     list = (
-      <div className="tag-marquee">
-        <div
+      <div
+        className="tag-marquee"
+        role="region"
+        tabIndex={0}
+        aria-label="Scrolling list, focus to pause"
+      >
+        <ul
           className="tag-marquee__track"
           style={{ '--tag-marquee-count': tags.length } as CSSProperties}
         >
-          {looped.map((tag, index) => (
-            <div className="tag-marquee__card" key={`${tag.label}-${index}`}>
-              {tag.kind && (
-                <span className={`tag-marquee__kind tag-marquee__kind--${tag.kind}`}>
-                  {tag.kind}
-                </span>
-              )}
-              <span className="tag-marquee__label">{tag.label}</span>
-              {tag.detail && <span className="tag-marquee__detail">{tag.detail}</span>}
-            </div>
-          ))}
-        </div>
+          {looped.map((tag, index) => {
+            const isClone = index >= tags.length
+            return (
+              <li
+                className={`tag-marquee__card${isClone ? ' tag-marquee__card--clone' : ''}`}
+                key={`${tag.label}-${index}`}
+                aria-hidden={isClone || undefined}
+              >
+                {tag.kind && (
+                  <span className={`tag-marquee__kind tag-marquee__kind--${tag.kind}`}>
+                    {tag.kind}
+                  </span>
+                )}
+                <span className="tag-marquee__label">{tag.label}</span>
+                {tag.detail && <span className="tag-marquee__detail">{tag.detail}</span>}
+              </li>
+            )
+          })}
+        </ul>
       </div>
     )
   } else {

@@ -1,0 +1,21 @@
+{
+  "siteUrl": "https://mitchellferreira.au",
+  "pages": {
+    "/": {
+      "title": "Tiny Captain | A Pirate Adventure on the High Seas",
+      "description": "Command a tiny ship in a vast, cursed ocean. Sail, fight, and loot your way across the seas in Tiny Captain, a pirate adventure by Mitchell Ferreira. Wishlist now on Steam."
+    },
+    "/story": {
+      "title": "The Story | Tiny Captain",
+      "description": "Some legends are best left buried. Uncover the lost treasure of Captain Marrow and the ancient curse rising from the Sunken Graveyard."
+    },
+    "/gameplay": {
+      "title": "The Gameplay | Tiny Captain",
+      "description": "Voyages, campaign missions, exploration, perks, and ship-to-ship combat. See what life as a Tiny Captain looks like."
+    }
+  },
+  "notFound": {
+    "title": "Lost at Sea | Tiny Captain",
+    "description": "This page has sunk to the bottom of the ocean."
+  }
+}

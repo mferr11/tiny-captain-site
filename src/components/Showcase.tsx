@@ -1,16 +1,21 @@
 import { useLayoutEffect, useRef, type ReactNode } from 'react'
+import type { Screenshot } from '../assets'
+import ScreenshotImage from './ScreenshotImage'
 import './Showcase.css'
 
 type CaptionTilt = 'left' | 'right' | 'none'
 
 type ShowcaseProps = {
-  image: string
+  image: Screenshot
   alt: string
   topCaption: string
   bottomCaption: string
   topTilt?: CaptionTilt
   bottomTilt?: CaptionTilt
   imagePosition?: string
+  // Load the image straight away instead of lazily. Use for a showcase that is
+  // on screen when the page first loads.
+  priority?: boolean
 }
 
 function tiltClass(tilt: CaptionTilt) {
@@ -27,7 +32,8 @@ function Caption({ className, children }: { className: string; children: ReactNo
   useLayoutEffect(() => {
     const caption = captionRef.current
     const text = textRef.current
-    if (!caption || !text) return
+    const container = caption?.parentElement
+    if (!caption || !text || !container) return
 
     function fit() {
       if (!caption || !text) return
@@ -39,8 +45,10 @@ function Caption({ className, children }: { className: string; children: ReactNo
 
     fit()
     document.fonts?.ready.then(fit)
-    window.addEventListener('resize', fit)
-    return () => window.removeEventListener('resize', fit)
+    // Watch the showcase rather than the caption, since fit() resizes the caption.
+    const observer = new ResizeObserver(fit)
+    observer.observe(container)
+    return () => observer.disconnect()
   }, [children])
 
   return (
@@ -58,13 +66,16 @@ export default function Showcase({
   topTilt = 'none',
   bottomTilt = 'none',
   imagePosition = 'center',
+  priority = false,
 }: ShowcaseProps) {
   return (
     <section className="showcase">
       <div className="showcase__media">
-        <img
+        <ScreenshotImage
           className="showcase__image"
-          src={image}
+          image={image}
+          sizes="100vw"
+          loading={priority ? 'eager' : 'lazy'}
           alt={alt}
           style={{ objectPosition: imagePosition }}
         />

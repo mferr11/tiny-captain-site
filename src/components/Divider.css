@@ -14,19 +14,11 @@
 }
 
 .divider__line--left {
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(var(--color-gold-rgb, 224, 169, 64), 0.6)
-  );
+  background: linear-gradient(to right, transparent, rgba(var(--color-gold-rgb), 0.6));
 }
 
 .divider__line--right {
-  background: linear-gradient(
-    to left,
-    transparent,
-    rgba(var(--color-gold-rgb, 224, 169, 64), 0.6)
-  );
+  background: linear-gradient(to left, transparent, rgba(var(--color-gold-rgb), 0.6));
 }
 
 .divider__icon {

@@ -2,5 +2,5 @@ export const STEAM_URL = 'https://store.steampowered.com/app/5156160/Tiny_Captai
 
 export const NAV_LINKS = [
   { to: '/story', label: 'Story' },
-  { to: '/features', label: 'Features' },
+  { to: '/gameplay', label: 'Gameplay' },
 ] as const
