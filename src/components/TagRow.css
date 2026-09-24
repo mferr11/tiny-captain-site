@@ -66,9 +66,9 @@
 .tag-row__item {
   display: flex;
   flex-direction: column;
-  flex: 0 1 300px;
-  width: 340px;
-  gap: 6px;
+  flex: 0 1 380px;
+  width: 380px;
+  gap: 12px;
   padding: 16px 20px;
   border: 3px solid color-mix(in srgb, var(--tag-accent, var(--color-gold)) 22%, transparent);
   border-radius: 10px;
